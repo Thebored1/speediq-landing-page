@@ -1,32 +1,41 @@
-"use client";
+"use client"
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Moon, Sun } from "lucide-react";
+import { Moon, Sun } from "lucide-react"
+import { useTheme } from "@/components/theme-provider"
+import { usePathname, useRouter } from "next/navigation"
 
 export function ThemeToggle() {
-  const pathname = usePathname();
-  const isLight = pathname === "/light";
+  const { theme, toggle } = useTheme()
+  const pathname = usePathname()
+  const router = useRouter()
 
-  if (isLight) {
-    return (
-      <Link
-        href="/"
-        className="flex h-full items-center px-4 text-sm font-medium text-neutral-400 hover:text-white transition-colors group"
-        title="Switch to Dark Mode"
-      >
-        <Moon size={18} className="group-hover:fill-current" />
-      </Link>
-    );
+  const handleToggle = () => {
+    if (pathname === "/") {
+      toggle()
+      router.push("/light")
+    } else if (pathname === "/light") {
+      toggle()
+      router.push("/")
+    } else {
+      toggle()
+    }
   }
 
+  const isDarkHome = pathname === "/"
+  const isLightHome = pathname === "/light"
+  const isDark = isDarkHome ? true : isLightHome ? false : theme === "dark"
+
   return (
-    <Link
-      href="/light"
-      className="flex h-full items-center px-4 text-sm font-medium text-neutral-400 hover:text-white transition-colors group"
-      title="Switch to Light Mode"
+    <button
+      onClick={handleToggle}
+      className="theme-toggle flex h-full items-center px-4 text-sm font-medium transition-colors group bg-transparent border-none cursor-pointer"
+      style={{ color: "var(--header-text)" }}
+      title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
     >
-      <Sun size={18} className="group-hover:fill-current" />
-    </Link>
-  );
+      {isDark
+        ? <Sun size={18} className="group-hover:fill-current transition-all" />
+        : <Moon size={18} className="group-hover:fill-current transition-all" />
+      }
+    </button>
+  )
 }

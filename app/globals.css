@@ -1,26 +1,174 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ── Design tokens: dark (default) ─────────────────────────────────── */
+:root, [data-theme="dark"] {
+  --clr-bg:    #080808;
+  --clr-bg2:   #0A0A0A;
+  --clr-bg3:   #0D0D0D;
+  --clr-bg4:   #050505;
+  --clr-fg:    #ffffff;
+  --clr-fg2:   rgba(255,255,255,0.72);
+  --clr-fg3:   rgba(255,255,255,0.52);
+  --clr-fg4:   rgba(255,255,255,0.42);
+  --clr-fg5:   rgba(255,255,255,0.35);
+  --clr-fg6:   rgba(255,255,255,0.25);
+  --clr-mono:  rgba(255,255,255,0.40);
+  --clr-num:   rgba(255,255,255,0.18);
+  --clr-line:  rgba(255,255,255,0.08);
+  --clr-line2: rgba(255,255,255,0.12);
+  --clr-line3: rgba(255,255,255,0.20);
+  --clr-line4: rgba(255,255,255,0.40);
+  --clr-tag:   rgba(255,255,255,0.45);
+  --clr-corner:rgba(255,255,255,0.18);
+  --clr-dot:   rgba(255,255,255,0.065);
+  --clr-cta:   #ffffff;
+  --clr-cta-fg:#000000;
+  --clr-noise-fg: rgba(255,255,255,0.55);
+  /* header */
+  --header-bg:         #000000;
+  --header-border:     rgba(255,255,255,0.1);
+  --header-divide:     rgba(255,255,255,0.1);
+  --header-text:       rgba(255,255,255,0.7);
+  --header-text-hover: #ffffff;
+  --header-hover-bg:   rgba(255,255,255,0.05);
+  --dropdown-bg:       #000000;
+  --dropdown-border:   rgba(255,255,255,0.1);
+  --dropdown-hover:    rgba(255,255,255,0.04);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ── Design tokens: light ───────────────────────────────────────────── */
+[data-theme="light"] {
+  --clr-bg:    #f5f5f5;
+  --clr-bg2:   #ffffff;
+  --clr-bg3:   #ebebeb;
+  --clr-bg4:   #fafafa;
+  --clr-fg:    #000000;
+  --clr-fg2:   rgba(0,0,0,0.75);
+  --clr-fg3:   rgba(0,0,0,0.56);
+  --clr-fg4:   rgba(0,0,0,0.44);
+  --clr-fg5:   rgba(0,0,0,0.36);
+  --clr-fg6:   rgba(0,0,0,0.26);
+  --clr-mono:  rgba(0,0,0,0.44);
+  --clr-num:   rgba(0,0,0,0.18);
+  --clr-line:  rgba(0,0,0,0.08);
+  --clr-line2: rgba(0,0,0,0.12);
+  --clr-line3: rgba(0,0,0,0.20);
+  --clr-line4: rgba(0,0,0,0.40);
+  --clr-tag:   rgba(0,0,0,0.45);
+  --clr-corner:rgba(0,0,0,0.20);
+  --clr-dot:   rgba(0,0,0,0.06);
+  --clr-cta:   #000000;
+  --clr-cta-fg:#ffffff;
+  --clr-noise-fg: rgba(0,0,0,0.45);
+  /* header */
+  --header-bg:         #ffffff;
+  --header-border:     rgba(0,0,0,0.1);
+  --header-divide:     rgba(0,0,0,0.1);
+  --header-text:       rgba(0,0,0,0.65);
+  --header-text-hover: #000000;
+  --header-hover-bg:   rgba(0,0,0,0.04);
+  --dropdown-bg:       #ffffff;
+  --dropdown-border:   rgba(0,0,0,0.1);
+  --dropdown-hover:    rgba(0,0,0,0.04);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── Header theming ─────────────────────────────────────────────────── */
+header.site-header {
+  background-color: var(--header-bg);
+  border-bottom-color: var(--header-border);
+}
+header.site-header .divide-x > * + * {
+  border-left-color: var(--header-divide);
+}
+header.site-header a,
+header.site-header button:not(.theme-toggle):not(.header-cta) {
+  color: var(--header-text);
+}
+header.site-header a:not(.header-cta):hover,
+header.site-header button:not(.theme-toggle):hover {
+  color: var(--header-text-hover);
+  background-color: var(--header-hover-bg);
 }
 
+/* Keep the white CTA button in header always contrasting */
+header.site-header .header-cta {
+  background-color: var(--clr-cta) !important;
+  color: var(--clr-cta-fg) !important;
+}
+header.site-header .header-cta:hover {
+  opacity: 0.85;
+}
+
+/* Dropdown */
+header.site-header .nav-dropdown {
+  background-color: var(--dropdown-bg);
+  border-color: var(--dropdown-border);
+}
+header.site-header .nav-dropdown a {
+  color: var(--clr-fg2);
+}
+header.site-header .nav-dropdown a:hover {
+  background-color: var(--dropdown-hover);
+  color: var(--clr-fg);
+}
+
+/* Mobile nav */
+.mobile-menu-panel {
+  background-color: var(--header-bg);
+  border-top-color: var(--header-border);
+}
+.mobile-menu-panel a {
+  color: var(--clr-fg);
+}
+.mobile-menu-panel a:hover {
+  background-color: var(--header-hover-bg);
+}
+.mobile-menu-panel .divide-y > * + * {
+  border-top-color: var(--header-border);
+}
+.mobile-menu-panel .border-t {
+  border-top-color: var(--header-border);
+}
+.mobile-menu-panel .bg-neutral-900 {
+  background-color: var(--header-hover-bg);
+}
+
+/* ── Global base ────────────────────────────────────────────────────── */
+html { background: var(--clr-bg); }
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--clr-bg);
+  color: var(--clr-fg);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
+
+/* ── Dot grid utility ───────────────────────────────────────────────── */
+.dot-grid {
+  background-image: radial-gradient(circle, var(--clr-dot) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* ── Hero gradient overlays (theme-aware) ───────────────────────────── */
+.hero-grad-left {
+  background: linear-gradient(to right, rgba(8,8,8,0.95) 0%, rgba(8,8,8,0.7) 45%, rgba(8,8,8,0) 100%);
+}
+[data-theme="light"] .hero-grad-left {
+  background: linear-gradient(to right, rgba(245,245,245,0.95) 0%, rgba(245,245,245,0.7) 45%, rgba(245,245,245,0) 100%);
+}
+.hero-grad-bottom {
+  background: linear-gradient(to top, rgba(8,8,8,1) 0%, rgba(8,8,8,0) 100%);
+}
+[data-theme="light"] .hero-grad-bottom {
+  background: linear-gradient(to top, rgba(245,245,245,1) 0%, rgba(245,245,245,0) 100%);
+}
+
+/* ── Page content theme overrides ───────────────────────────────────── */
+/* Any div.gf uses the theme variable for background */
+.gf { background: var(--clr-bg) !important; }
+
+/* Inline SVG stroke/fill color adaptations for light theme */
+[data-theme="light"] svg .theme-stroke { stroke: rgba(0,0,0,0.3) !important; }
+[data-theme="light"] svg .theme-fill { fill: rgba(0,0,0,0.07) !important; }
+
+/* InboxVisual / BroadcastVisual / etc. paper fill becomes white in light */
+[data-theme="light"] .feature-visual-paper { fill: #ffffff !important; }

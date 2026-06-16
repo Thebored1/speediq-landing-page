@@ -18,9 +18,12 @@ const whyUsItems = [
 ];
 
 const useCasesItems = [
-  { name: 'E-commerce', href: '/use-cases?industry=ecommerce', description: 'Recover carts and drive repeat sales.' },
-  { name: 'SaaS', href: '/use-cases?industry=saas', description: 'Onboard users and announce new features.' },
-  { name: 'Agencies', href: '/use-cases?industry=agency', description: 'Manage campaigns for multiple clients.' },
+  { name: 'E-commerce', href: '/use-cases/ecommerce', description: 'Recover carts and drive repeat sales.' },
+  { name: 'SaaS', href: '/use-cases/saas', description: 'Onboard users and announce new features.' },
+  { name: 'Agencies', href: '/use-cases/agency', description: 'Manage campaigns for multiple clients.' },
+  { name: 'Real Estate', href: '/use-cases/real-estate', description: 'Nurture leads and automate showings.' },
+  { name: 'Education', href: '/use-cases/education', description: 'Engage students and send fee reminders.' },
+  { name: 'Fintech', href: '/use-cases/fintech', description: 'Alerts, OTPs, and compliance notices.' },
 ];
 
 const MENUS = [
@@ -109,7 +112,7 @@ export function DesktopNav() {
         }}
       >
         <div 
-          className="w-72 bg-black border border-neutral-800 shadow-2xl overflow-hidden mt-0 relative transition-all duration-150 ease-out" 
+          className="nav-dropdown w-72 bg-black border border-neutral-800 shadow-2xl overflow-hidden mt-0 relative transition-all duration-150 ease-out" 
           style={{ height: renderIdx !== null && contentHeights[renderIdx] ? contentHeights[renderIdx] : 200 }}
         >
           {MENUS.map((menu, idx) => {

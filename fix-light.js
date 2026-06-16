@@ -1,22 +1,45 @@
 const fs = require('fs');
-let code = fs.readFileSync('app/light/page.tsx', 'utf8');
+const file = 'app/light/page.tsx';
+let content = fs.readFileSync(file, 'utf8');
 
-// Fix buttons that became black-on-black
-code = code.replace(/background:\s*"#000",\s*color:\s*"#000"/gi, 'background: "#000", color: "#fff"');
+// 1. Change imports and Header to HeaderLight
+content = content.replace(/import \{ Header \} from \"@\/components\/navigation\/header\"/, import { HeaderLight } from \"@/components/navigation/header-light\");
+content = content.replace(/<Header \/>/g, '<HeaderLight />');
 
-// Fix "Try CRM for free" button
-code = code.replace(/background:\s*"#111"/gi, 'background: "transparent"');
+// 2. Add useTheme / useRouter and redirect
+content = content.replace(/import \{ type CSSProperties, type ReactNode, useEffect, useRef, useState \} from \"react\"/, import { type CSSProperties, type ReactNode, useEffect, useRef, useState } from "react"\nimport { useTheme } from "@/components/theme-provider"\nimport { useRouter } from "next/navigation");
+content = content.replace(/export default function NoisePage\(\) \{/, export default function NoisePage() {\n  const { theme } = useTheme()\n  const router = useRouter()\n\n  useEffect(() => {\n    if (theme === "dark") {\n      router.replace("/")\n    }\n  }, [theme, router]));
 
-// Fix ASCII noise colors that should be black text
-code = code.replace(/color:\s*"#d4d4d4"/gi, 'color: "rgba(0,0,0,0.4)"');
+// 3. Color mapping
+// Dark backgrounds -> Light backgrounds
+content = content.replace(/#000000|#000/g, '__BLACK__');
+content = content.replace(/#ffffff|#fff/g, '__WHITE__');
 
-// Fix Dashboard Preview Sidebar
-code = code.replace(/background:\s*"#020202"/gi, 'background: "#ffffff"');
+// Dark specific backgrounds -> Light specific backgrounds
+content = content.replace(/#050505/g, '#fafafa'); // bg4
+content = content.replace(/#080808/g, '#f5f5f5'); // bg
+content = content.replace(/#0A0A0A/g, '#ffffff'); // bg2
+content = content.replace(/#0D0D0D/g, '#ebebeb'); // bg3
 
-// Fix the Dashboard Preview pure black background block behind the mini squares
-code = code.replace(/width:\s*28,\s*height:\s*28,\s*background:\s*"#000"/gi, 'width: 28, height: 28, background: "#f1f3f5"');
+// Background base
+content = content.replace(/background: '__BLACK__'/g, ackground: '#ffffff');
+// Text base
+content = content.replace(/color: '__WHITE__'/g, color: '#000000');
 
-// Let's also check if there are other "#000" colors that need inversion in the dashboard preview
-// We don't want to break other things.
+// SVG strokes/fills
+content = content.replace(/stroke=\"__WHITE__\"/g, stroke=\"#000000\");
+content = content.replace(/fill=\"__WHITE__\"/g, ill=\"#000000\");
 
-fs.writeFileSync('app/light/page.tsx', code);
+// Other specific elements
+content = content.replace(/floodColor=\"__BLACK__\"/g, loodColor=\"#000000\");
+content = content.replace(/floodcolor=\"__BLACK__\"/gi, loodColor=\"#000000\");
+content = content.replace(/color=\"__BLACK__\"/g, color=\"#ffffff\");
+
+// Restore leftover black/white
+content = content.replace(/__BLACK__/g, '#ffffff');
+content = content.replace(/__WHITE__/g, '#000000');
+
+// Fix RGBA opacities
+content = content.replace(/rgba\(255,255,255/g, 'rgba(0,0,0');
+
+fs.writeFileSync(file, content);
