@@ -2,7 +2,6 @@
 
 import { type CSSProperties, type ReactNode, useEffect, useRef, useState } from "react"
 import { AsciiNoise } from "@/components/ascii/ascii-noise"
-import { Header } from "@/components/navigation/header"
 import {
   ArrowIcon,
   Btn,
@@ -176,15 +175,15 @@ const PAIN_LINES = [
 const PLATFORM_COLS = [
   {
     n: "01", title: "Unified Inbox",
-    items: ["Manage conversations across apps", "Assign threads to team members", "Quick replies and templates", "Nothing falls through the cracks"],
+    items: ["All channels, one view", "Assign + label threads", "Context notes per contact", "Replies never fall through"],
   },
   {
-    n: "02", title: "Broadcasts & Segments",
-    items: ["Filter audiences with AND/OR logic", "Schedule cross-channel campaigns", "Use approved WhatsApp templates", "Track delivery in real-time"],
+    n: "02", title: "Broadcasts",
+    items: ["Segment your list", "Pick an approved template", "Schedule or send now", "Delivery + open tracking"],
   },
   {
     n: "03", title: "Analytics & Templates",
-    items: ["Drag-and-drop email builder", "Monitor open and reply rates", "See cross-channel attribution", "Up to 1-year data retention"],
+    items: ["Per-campaign reports", "Open, reply, click rates", "Template library", "Cross-channel attribution"],
   },
 ]
 
@@ -306,23 +305,23 @@ function TemplateVisual() {
 
 const FEATURES: { title: string; body: string; visual: ReactNode }[] = [
   {
-    title: "Visual Workflow Builder",
-    body: "Drag-and-drop automations with triggers, branching logic, and webhooks. Automatically respond to email replies or inbound SMS.",
+    title: "Holistic Risk Assessment",
+    body: "Simulate attacker tactics across prompts, tools, and integrations to uncover hidden gaps in layered defenses.",
     visual: <InboxVisual />,
   },
   {
-    title: "Advanced Segmentation",
-    body: "Filter your audience using AND/OR logic. See real-time audience size estimations and apply dynamic tagging to contacts.",
+    title: "Proactive Threat Intelligence",
+    body: "Gain early warnings on emerging vulnerabilities, backed by actionable playbooks for swift mitigation.",
     visual: <BroadcastVisual />,
   },
   {
-    title: "Unified Team Inbox",
-    body: "Manage conversations across WhatsApp and SMS in one place. Assign threads, use quick replies, and attach media seamlessly.",
+    title: "Runtime Injection Defense",
+    body: "Deploy lightweight guardrails that detect and neutralize prompt injections, jailbreaks, and exfiltration attempts in milliseconds.",
     visual: <AnalyticsVisual />,
   },
   {
-    title: "Cross-Channel Analytics",
-    body: "Track delivery, open, click, and reply rates across WhatsApp, Email, and SMS. Store data up to 1 year on enterprise plans.",
+    title: "Developer Workflow Integration",
+    body: "Embed security directly into CI/CD pipelines and code reviews, catching risks early without slowing teams.",
     visual: <TemplateVisual />,
   },
 ]
@@ -374,14 +373,40 @@ export default function NoisePage() {
         }
       `}</style>
 
-      <Header />
       <div className="gf" style={{ fontFamily: "var(--font-sans)", background: "#080808" }}>
         <div style={{ maxWidth: 1920, margin: "0 auto", position: "relative", overflow: "hidden" }}>
 
         {/* ── NAV + HERO ────────────────────── */}
         <div>
           <div style={{ position: "relative" }}>
-            {/* Nav removed because global Header is used */}
+            {/* Nav */}
+            <nav style={{
+              display: "flex", justifyContent: "space-between", alignItems: "center",
+              padding: "0 40px", height: 52,
+              borderBottom: "1px solid rgba(255,255,255,0.08)",
+            }}>
+              <span style={{
+                fontFamily: "var(--font-mono)", fontSize: 12, fontWeight: 700,
+                color: "#fff", letterSpacing: "0.12em",
+              }}>SPEEDIQ</span>
+              <div style={{ display: "flex", gap: 28, alignItems: "center" }}>
+                {["Product", "Pricing", "Docs"].map((l) => (
+                  <a key={l} href="#" style={{
+                    fontFamily: "var(--font-mono)", fontSize: 9.5, letterSpacing: "0.1em",
+                    color: "rgba(255,255,255,0.35)", textDecoration: "none",
+                    textTransform: "uppercase" as const,
+                  }}>{l}</a>
+                ))}
+                <span style={{
+                  display: "inline-flex", alignItems: "center",
+                  padding: "6px 14px",
+                  background: "#fff", color: "#0a0a0a",
+                  fontFamily: "var(--font-mono)",
+                  fontSize: 10, fontWeight: 700, letterSpacing: "0.08em",
+                  cursor: "pointer",
+                }}>GET STARTED</span>
+              </div>
+            </nav>
 
             {/* Hero */}
             <div style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
@@ -389,7 +414,7 @@ export default function NoisePage() {
                   <div
                   ref={containerRef}
                   style={{
-                    height: "clamp(1000px, 95vh, 1200px)",
+                    height: "clamp(800px, 100vh - 92px, 1050px)",
                     position: "relative",
                     overflow: "hidden",
                     display: "flex",
@@ -446,7 +471,7 @@ export default function NoisePage() {
                     padding: "6px 12px", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.1)"
                   }}>
                     <span style={{ width: 8, height: 8, background: "#fff", borderRadius: "50%" }} />
-                    OMNICHANNEL AUTOMATION
+                    GROWTH-READY PLATFORM
                   </div>
 
                   <h1 style={{
@@ -456,8 +481,8 @@ export default function NoisePage() {
                     fontWeight: 500, margin: 0, color: "#fff", maxWidth: "800px",
                     textShadow: "0 4px 40px rgba(0,0,0,0.8)",
                   }}>
-                    One inbox for WhatsApp,<br />
-                    <ItalicEmph>Email & SMS.</ItalicEmph>
+                    Choose the flexible CRM for<br />
+                    <ItalicEmph>fast-growing companies</ItalicEmph>
                   </h1>
 
                   <p style={{
@@ -465,7 +490,7 @@ export default function NoisePage() {
                     color: "rgba(255,255,255,0.52)", maxWidth: 600,
                     textShadow: "0 1px 12px rgba(0,0,0,0.9)",
                   }}>
-                    A SaaS marketing automation platform consolidating broadcasts, templates, segments, and analytics into a unified workspace. Automate, engage, and scale.
+                    Track all pipeline data in one place. Auto-score leads and send follow-ups. Generate marketing campaigns. Boost productivity and turn more leads into sales.
                   </p>
 
                   <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 4, color: "rgba(255,255,255,0.7)", fontSize: 14 }}>
@@ -478,7 +503,7 @@ export default function NoisePage() {
                   <div style={{ display: "flex", gap: 12, flexWrap: "wrap" as const, justifyContent: "flex-start", marginTop: 8 }}>
                     <Btn href="/auth/sign-up" variant="primary" size="lg"
                       style={{ background: "#fff", color: "#000", border: "none", fontFamily: "inherit", fontWeight: 500 }}>
-                      START FREE TRIAL
+                      Get a demo
                     </Btn>
                     <Btn href="/compare" variant="ghost" size="lg"
                       style={{ background: "#111", border: "1px solid rgba(255,255,255,0.2)", color: "#fff", fontFamily: "inherit" }}>
@@ -657,29 +682,16 @@ export default function NoisePage() {
               </div>
 
               {/* ── Row 3: Platform pillars ── */}
-              </div>
-            </div>
-            
-            {/* ── PLATFORM LABEL (Full width line) ── */}
-            <div style={{ borderBottom: "1px solid rgba(255,255,255,0.08)", background: "#080808" }}>
-              <div style={{
-                margin: "0 40px",
-                borderLeft: "1px solid rgba(255,255,255,0.08)",
-                borderRight: "1px solid rgba(255,255,255,0.08)",
-                padding: "18px 40px",
-              }}>
-                <Tag color="#ffffff">The platform</Tag>
-              </div>
-            </div>
+              <div>
+                {/* Row label */}
+                <div style={{
+                  padding: "18px 40px",
+                  borderBottom: "1px solid rgba(255,255,255,0.08)",
+                  background: "#080808",
+                }}>
+                  <Tag color="#ffffff">The platform</Tag>
+                </div>
 
-            {/* ── PLATFORM GRID ── */}
-            <div style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-              <div style={{
-                margin: "0 40px",
-                borderLeft: "1px solid rgba(255,255,255,0.08)",
-                borderRight: "1px solid rgba(255,255,255,0.08)",
-                position: "relative"
-              }}>
                 {/* Three columns */}
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)" }}>
                   {PLATFORM_COLS.map((col, i) => (
@@ -712,25 +724,15 @@ export default function NoisePage() {
               </div>
 
             </div>
-
-        {/* ── SPACER ──────────────────────────────────────────────────────── */}
-        <div style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-          <div style={{
-            margin: "0 40px",
-            height: "50px",
-            borderLeft: "1px solid rgba(255,255,255,0.08)",
-            borderRight: "1px solid rgba(255,255,255,0.08)"
-          }} />
         </div>
 
         {/* ── OUR SOLUTION (2x2 Grid) ─────────────────────────────────────────────── */}
-        <div style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+        <div style={{ background: "#0A0A0A", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
           <div style={{
             margin: "0 40px",
             borderLeft: "1px solid rgba(255,255,255,0.08)",
             borderRight: "1px solid rgba(255,255,255,0.08)",
-            position: "relative",
-            background: "#0A0A0A"
+            position: "relative"
           }}>
             <CornerMarks />
 
@@ -742,13 +744,13 @@ export default function NoisePage() {
                 fontWeight: 500, letterSpacing: "-0.025em", lineHeight: 1.1,
                 color: "#fff", margin: "0 0 16px", maxWidth: 600,
               }}>
-                Unified Workspace for Modern Marketing
+                Layered Defense for Autonomous Agents
               </h2>
               <p style={{
                 fontFamily: "var(--font-sans)", fontSize: 16, lineHeight: 1.6,
                 color: "rgba(255,255,255,0.46)", margin: 0, maxWidth: 540,
               }}>
-                From building visual workflows to running cross-channel broadcasts, SpeedIQ brings your entire marketing stack under one roof—ensuring seamless engagement without compromising speed or scale.
+                From holistic assessments to runtime blocks, Guardbase fortifies every vector attackers target: prompts, tools, data flows - ensuring resilience without compromising speed or scale.
               </p>
             </div>
 
@@ -799,87 +801,65 @@ export default function NoisePage() {
               ))}
             </div>
           </div>
-        </div>        {/* ── SPACER ──────────────────────────────────────────────────────── */}
-        <div style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-          <div style={{
-            margin: "0 40px",
-            height: "50px",
-            borderLeft: "1px solid rgba(255,255,255,0.08)",
-            borderRight: "1px solid rgba(255,255,255,0.08)"
-          }} />
-        </div>
-
-        {/* ── CHANNELS ──────────────────────────────────────────────── */}
+        </div>        {/* ── HOW IT WORKS ──────────────────────────────────────────────── */}
         <div style={{ background: "#080808", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-          <div style={{ margin: "0 40px", borderLeft: "1px solid rgba(255,255,255,0.08)", borderRight: "1px solid rgba(255,255,255,0.08)" }}>
-            
-            <div style={{ padding: "64px 40px 80px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
-              <div style={{ fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.1em", color: "rgba(255,255,255,0.6)", textTransform: "uppercase", marginBottom: 24 }}>
-                Omnichannel marketing designed for scale.
-              </div>
+          <div style={{ margin: "0 40px", padding: "120px 0", borderLeft: "1px solid rgba(255,255,255,0.08)", borderRight: "1px solid rgba(255,255,255,0.08)" }}>
+            <div>
               
-              <h2 style={{
-                fontFamily: "var(--font-sans)", fontSize: "clamp(28px, 3.5vw, 44px)",
-                fontWeight: 500, letterSpacing: "-0.025em", lineHeight: 1.1,
-                color: "#fff", maxWidth: 800, margin: 0,
-              }}>
-                Unified campaigns across WhatsApp, Email, and SMS.
-              </h2>
-            </div>
-
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 3fr 3fr 3fr 1fr", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
-              <div />
-              {[
-                {
-                  icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>,
-                  title: "WhatsApp.",
-                  desc: "Engage customers globally with official Meta Business API. Send rich templates, automate replies, and handle live chats seamlessly."
-                },
-                {
-                  icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>,
-                  title: "Email.",
-                  desc: "Build beautiful emails with our drag-and-drop HTML builder. Schedule campaigns, track open rates, and manage subscriptions with ease."
-                },
-                {
-                  icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>,
-                  title: "SMS.",
-                  desc: "Deliver critical alerts, OTPs, and promotional texts directly to users' phones with Twilio-powered global SMS and 10DLC support."
-                }
-              ].map((step, i) => (
-                <div key={i} style={{
-                  padding: "120px 40px 48px",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "flex-end",
-                  borderLeft: "1px solid rgba(255,255,255,0.08)",
+              <div style={{ marginBottom: 64, padding: "0 40px" }}>
+                <Tag color="#ffffff">HOW IT WORKS</Tag>
+                <h2 style={{
+                  fontFamily: "var(--font-sans)", fontSize: "clamp(28px, 3.5vw, 44px)",
+                  fontWeight: 500, letterSpacing: "-0.025em", lineHeight: 1.1,
+                  color: "#fff", margin: "16px 0 0",
                 }}>
-                  <div style={{ marginBottom: 32, color: "#fff" }}>
-                    {step.icon}
+                  Three-Step Protection,<br />Zero Workflow Disruption
+                </h2>
+              </div>
+
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 0 }}>
+                {[
+                  {
+                    num: "01",
+                    title: "Agent-Aware Threat Modeling",
+                    desc: "Automatically map trust boundaries, tool permissions, and execution flows for every agent component."
+                  },
+                  {
+                    num: "02",
+                    title: "Data Flow & Blast Radius Analysis",
+                    desc: "Trace sensitive data across logic, tools, and APIs - quantifying attacker reach and potential impact in real time."
+                  },
+                  {
+                    num: "03",
+                    title: "Actionable Fixes, Not Alerts",
+                    desc: "Receive precise, copy-paste remediation code and configurations for every vulnerability - deployable in minutes."
+                  }
+                ].map((step, i) => (
+                  <div key={i} style={{
+                    padding: i === 0 ? "0 40px" : i === 1 ? "0 40px" : "0 40px",
+                    borderLeft: i > 0 ? "1px solid rgba(255,255,255,0.08)" : "none",
+                  }}>
+                    <div style={{
+                      display: "inline-flex", alignItems: "center", justifyContent: "center",
+                      background: "#ffffff", color: "#000", width: 44, height: 44,
+                      fontFamily: "var(--font-mono)", fontSize: 16, fontWeight: 700,
+                      marginBottom: 24, borderRadius: 4,
+                    }}>
+                      {step.num}
+                    </div>
+                    <h3 style={{
+                      fontFamily: "var(--font-sans)", fontSize: 20, fontWeight: 500,
+                      color: "#fff", margin: "0 0 12px", letterSpacing: "-0.015em",
+                    }}>{step.title}</h3>
+                    <p style={{
+                      fontFamily: "var(--font-sans)", fontSize: 15, lineHeight: 1.6,
+                      color: "rgba(255,255,255,0.5)", margin: 0,
+                    }}>{step.desc}</p>
                   </div>
-                  <h3 style={{
-                    fontFamily: "var(--font-sans)", fontSize: 24, fontWeight: 500,
-                    color: "#fff", margin: "0 0 16px", letterSpacing: "-0.015em",
-                  }}>{step.title}</h3>
-                  <p style={{
-                    fontFamily: "var(--font-sans)", fontSize: 15, lineHeight: 1.6,
-                    color: "rgba(255,255,255,0.6)", margin: 0,
-                  }}>{step.desc}</p>
-                </div>
-              ))}
-              <div style={{ borderLeft: "1px solid rgba(255,255,255,0.08)" }} />
+                ))}
+              </div>
             </div>
-
           </div>
-        </div>
-
-        {/* ── SPACER ──────────────────────────────────────────────────────── */}
-        <div style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-          <div style={{
-            margin: "0 40px",
-            height: "50px",
-            borderLeft: "1px solid rgba(255,255,255,0.08)",
-            borderRight: "1px solid rgba(255,255,255,0.08)"
-          }} />
         </div>
 
         {/* ── CTA WITH ASCII ────────────────────────────────────────────── */}
@@ -906,18 +886,18 @@ export default function NoisePage() {
                   fontWeight: 500, letterSpacing: "-0.04em", lineHeight: 1.05,
                   color: "#fff", margin: "0 0 24px",
                 }}>
-                  Start scaling your marketing today.
+                  See Your AI Agents Through an Attacker's Eyes
                 </h2>
                 <p style={{
                   fontFamily: "var(--font-sans)", fontSize: 18, lineHeight: 1.6,
                   color: "rgba(255,255,255,0.6)", margin: "0 0 48px", maxWidth: 500,
                 }}>
-                  Sign up for a 7-day free trial. Get 200 free credits to test WhatsApp, Email, and SMS campaigns—no credit card required.
+                  Schedule a free security assessment and uncover hidden vulnerabilities before they become headlines.
                 </p>
                 <div style={{ display: "flex", gap: 16 }}>
                   <Btn href="/auth/sign-up" variant="primary" size="lg" icon={<ArrowIcon />}
                     style={{ background: "#ffffff", color: "#000", border: "1px solid #ffffff", fontFamily: "inherit" }}>
-                    START FREE TRIAL
+                    WATCH DEMO
                   </Btn>
                   <Btn href="/docs" variant="ghost" size="lg" icon={<span style={{fontSize: 12}}>📄</span>}
                     style={{ background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.2)", fontFamily: "inherit" }}>
@@ -944,16 +924,16 @@ export default function NoisePage() {
                 <div>
                   <div style={{ fontFamily: "var(--font-sans)", fontSize: 13, fontWeight: 600, color: "#fff", marginBottom: 20 }}>Products</div>
                   <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                    {["WhatsApp API", "Email Marketing", "SMS & 10DLC", "Unified Inbox"].map(link => (
+                    {["Guardrails", "Tool Call Controls", "Red Teaming", "PR Security Reviewer"].map(link => (
                       <a key={link} href="#" style={{ fontFamily: "var(--font-sans)", fontSize: 13, color: "rgba(255,255,255,0.5)", textDecoration: "none" }}>{link}</a>
                     ))}
                   </div>
                 </div>
 
                 <div>
-                  <div style={{ fontFamily: "var(--font-sans)", fontSize: 13, fontWeight: 600, color: "#fff", marginBottom: 20 }}>Resources</div>
+                  <div style={{ fontFamily: "var(--font-sans)", fontSize: 13, fontWeight: 600, color: "#fff", marginBottom: 20 }}>Company</div>
                   <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                    {["API Docs", "Use Cases", "Pricing", "Customer Stories"].map(link => (
+                    {["About", "Blog", "Careers"].map(link => (
                       <a key={link} href="#" style={{ fontFamily: "var(--font-sans)", fontSize: 13, color: "rgba(255,255,255,0.5)", textDecoration: "none" }}>{link}</a>
                     ))}
                   </div>
@@ -993,7 +973,7 @@ function DashboardPreview() {
   return (
     <div style={{
       width: "1500px",
-      height: "1000px",
+      height: "800px",
       background: "#050505",
       border: "1px solid rgba(255,255,255,0.1)",
       borderRadius: "16px",
@@ -1056,7 +1036,7 @@ function DashboardPreview() {
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
                <div style={{ fontSize: 13, color: "rgba(255,255,255,0.4)" }}>Updated 2 min ago</div>
-               <div style={{ fontSize: 13, color: "rgba(255,255,255,0.8)", display: "flex", alignItems: "center", gap: 6, background: "transparent", cursor: "pointer" }}>
+               <div style={{ fontSize: 13, color: "rgba(255,255,255,0.8)", display: "flex", alignItems: "center", gap: 6, padding: "6px 12px", borderRadius: 20, background: "rgba(255,255,255,0.05)" }}>
                   <span style={{fontSize: 14}}>↻</span> Reload
                </div>
             </div>

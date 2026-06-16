@@ -1,0 +1,647 @@
+====================================================
+SPEEDIQ.AI — COMPLETE PLATFORM DETAILS
+Fetched from: https://app.speediq.ai/ + source code at C:\Files\Projects\speediq
+Date: 2026-06-16
+====================================================
+
+OVERVIEW
+--------
+Title:       SpeedIQ — One inbox for WhatsApp, Email & SMS
+Tagline:     Automate, engage, scale.
+Description: A SaaS marketing automation platform consolidating broadcasts,
+             templates, segments, live inbox, and analytics across WhatsApp,
+             Email, and SMS into a unified workspace.
+Free Trial:  7 days, 200 credits, no credit card required
+Copyright:   © 2026 SpeedIQ
+App Name:    SpeedIQ (v1.0.0)
+
+
+====================================================
+CHANNELS
+====================================================
+
+- WhatsApp  (templates, broadcasts, live chat via Meta Business API)
+- Email     (campaigns, custom domain, drag-and-drop HTML builder)
+- SMS/10DLC (US/Canada + global, OTPs, transactional alerts — Twilio-powered)
+- Calls     (listed as coming soon)
+
+
+====================================================
+KEY PLATFORM FEATURES
+====================================================
+
+1. Campaigns
+   - Schedule broadcasts with live progress tracking
+   - Per-channel campaign editors (WhatsApp, Email, SMS)
+   - Campaign cancellation and retry of failed messages
+   - Send to single contact or bulk audience
+
+2. Templates
+   - WhatsApp: build and submit templates to Meta with auto-approval syncing
+     - Refresh approval status on demand
+     - View submission logs
+     - Test send to verify before submission
+     - Media support: images, videos, documents in headers
+   - Email: HTML drag-and-drop builder with variable substitution
+     (first_name, last_name, email, and custom fields)
+   - SMS: plain-text templates
+
+3. Segments (Audience Segmentation)
+   - Reusable audience filters with AND/OR logic (WhatsApp)
+   - Real-time audience size estimation (audience count endpoint)
+   - Contact tagging (tag definitions per project)
+
+4. Inbox (Live Chat / Conversations)
+   - Unified reply management across WhatsApp and SMS
+   - Conversation assignment to team members
+   - Auto-merging of threads
+   - Quick replies (saved response shortcuts)
+   - Canned messages with media attachments (images, etc.)
+   - Mark conversations as read
+   - Media viewing within conversations
+
+5. Automations
+   - Drag-and-drop workflow builder
+   - Triggers, branching logic, and webhooks
+   - Inbound handling for email replies
+
+6. Analytics
+   - Delivery, open, click, and reply rate tracking
+   - Per-channel analytics (WhatsApp, Email, SMS)
+   - Retention: 30 days (Starter), 90 days (Pro), 1 year (Business)
+   - Usage event logging
+
+7. Team & Access Control
+   - Multi-seat management
+   - Four role levels per project: Owner, Admin, Editor, Viewer
+   - Team member invitations via email (with token-based acceptance/decline)
+   - Member removal
+
+8. Contacts
+   - Unified contact list across channels
+   - Bulk CSV import with custom field mapping
+   - Contact profile viewing
+   - Bulk update
+   - Tag-based segmentation (WhatsApp)
+   - Contact-level conversation history
+
+9. Settings
+   - WhatsApp account configuration (WABA via Meta Embedded Signup)
+   - Email provider settings (Resend or SMTP; custom domain verification)
+   - SMS settings (Twilio OAuth)
+   - Tag definitions management
+   - Notification preferences (per user)
+
+10. Billing
+    - Subscription management (Starter, Pro, Business)
+    - Credit top-ups
+    - Auto-recharge at configurable thresholds
+    - Billing portal (Stripe)
+    - Cancel subscription
+
+11. AI Assist
+    - AI-powered message generation
+    - Cost: 10 credits per generation
+    - Available on Business plan
+
+
+====================================================
+PRICING PLANS
+====================================================
+
+Annual billing = 20% discount. USD and INR currencies supported.
+
+Plan        | USD/mo  | INR/mo  | Credits/mo | Contacts  | Seats
+------------|---------|---------|------------|-----------|----------
+Starter     | $12     | ₹999    | 5,000      | 5,000     | 3
+Pro         | $29     | ₹2,499  | 15,000     | 25,000    | 10
+Business    | $79     | ₹6,999  | 50,000     | 100,000   | Unlimited
+
+Plan Feature Breakdown:
+  Starter:
+    - WhatsApp + Email channels only (SMS locked)
+    - Basic automations
+    - 30-day analytics retention
+    - Custom email domains
+
+  Pro (most popular):
+    - All channels (WhatsApp, Email, SMS)
+    - Full automations with branching
+    - API access
+    - 90-day analytics retention
+
+  Business (everything in Pro, plus):
+    - AI assist (10 credits/generation)
+    - Audit logs
+    - Custom roles
+    - Priority support with 99.9% SLA
+    - 1-year analytics retention
+
+Feature flags control channel availability: BILLING_ENABLED, EMAIL_ENABLED, SMS_ENABLED.
+
+
+====================================================
+CREDIT SYSTEM
+====================================================
+
+Message type                         | Credits consumed
+-------------------------------------|----------------
+Email (campaign/transactional)       | 1 credit
+WhatsApp session messages            | 2 credits
+WhatsApp utility/auth templates      | 3 credits
+WhatsApp marketing templates         | 5 credits
+WhatsApp service templates           | (see config)
+SMS domestic (US/Canada)             | 5 credits
+SMS MMS                              | 8 credits
+SMS international                    | 15 credits
+AI assist (per generation)           | 10 credits
+
+- Unused credits roll over up to 30 days
+- Sends pause at zero balance — no surprise charges
+- Auto-recharge available at configurable thresholds
+- Credit weights are admin-configurable (editable in /admin/credit-weights)
+
+
+====================================================
+CREDIT TOP-UP PACKS (one-time purchases)
+====================================================
+
+Pack size    | Price (USD)
+-------------|------------
+5,000        | $6
+25,000       | ~$18 (est.)
+100,000      | ~$85 (est.)
+500,000      | $339
+
+(Volume discounts apply to larger packs; exact mid-tier pricing from billing config.)
+
+
+====================================================
+PAYMENT PROVIDERS
+====================================================
+
+- Stripe   (primary; handles subscriptions + billing portal)
+- Razorpay (secondary; INR billing for Indian users)
+
+Both providers handle:
+  - Subscription checkout
+  - Top-up purchases
+  - Webhook-based event processing
+
+
+====================================================
+ALL PAGES & ROUTES
+====================================================
+
+--- Marketing Pages ---
+/                          Homepage / landing
+/compare                   Feature comparison (competitors or plan comparison)
+/features                  Features overview
+/features/email            Email feature detail
+/features/inbox            Inbox feature detail
+/features/sms              SMS feature detail
+/features/whatsapp         WhatsApp feature detail
+/pricing                   Pricing page
+/use-cases                 Use cases overview
+/legal/acceptable-use      Acceptable use policy
+/legal/cookies             Cookie policy
+/legal/dpa                 Data Processing Agreement
+/legal/privacy             Privacy policy
+/legal/refund              Refund policy
+/legal/terms               Terms of service
+
+--- Authentication Pages ---
+/auth/login                Login (email/password or Google OAuth)
+/auth/register             New user registration
+/auth/forgot-password      Password recovery initiation
+/auth/reset-password       Password reset (from email link)
+/auth/verify-email         Email verification
+/auth/callback             OAuth callback handler
+
+--- Project Selection ---
+/projects                  Project list / workspace selector
+
+--- Invitation Pages ---
+/invitations               Pending invitations list
+/invite/[token]            Accept or decline invitation via link
+
+--- Unsubscribe ---
+/unsubscribe/thank-you     Email unsubscribe confirmation
+
+--- Dashboard Pages ---
+/dashboard                 Main dashboard overview
+/dashboard/account         Account profile settings
+/dashboard/notifications   Notification preferences
+
+  -- Analytics --
+  /dashboard/analytics            Analytics overview
+  /dashboard/analytics/email      Email analytics
+  /dashboard/analytics/whatsapp   WhatsApp analytics
+
+  -- WhatsApp --
+  /dashboard/whatsapp                            Module overview
+  /dashboard/whatsapp/campaigns                  Campaign list
+  /dashboard/whatsapp/campaigns/[campaignId]     Campaign detail/editor
+  /dashboard/whatsapp/contacts                   Contact list
+  /dashboard/whatsapp/templates                  Template list
+  /dashboard/whatsapp/templates/new              Create new template
+  /dashboard/whatsapp/templates/[id]             Template detail
+  /dashboard/whatsapp/templates/[id]/edit        Template editor
+  /dashboard/whatsapp/live-chat                  Live WhatsApp chat / conversations
+
+  -- Email --
+  /dashboard/email                               Module overview
+  /dashboard/email/campaigns                     Campaign list
+  /dashboard/email/campaigns/[campaignId]        Campaign detail/editor
+  /dashboard/email/templates                     Template list
+  /dashboard/email/templates/new                 Create new template
+  /dashboard/email/templates/[templateId]        Template editor
+  /dashboard/email/subscribers                   Subscriber list
+
+  -- SMS --
+  /dashboard/sms                                 Module overview
+  /dashboard/sms/campaigns                       Campaign list
+  /dashboard/sms/campaigns/[campaignId]          Campaign detail
+  /dashboard/sms/contacts                        Contact list
+  /dashboard/sms/templates                       Template list
+  /dashboard/sms/live-chat                       Live SMS chat / conversations
+  /dashboard/sms/analytics                       SMS analytics
+
+  -- Contacts & Team --
+  /dashboard/contacts                            All contacts view
+  /dashboard/contacts/upload                     CSV bulk import
+  /dashboard/team                                Team member management
+
+  -- Settings --
+  /dashboard/settings                            Settings overview
+  /dashboard/settings/whatsapp-account           WhatsApp WABA configuration
+  /dashboard/settings/email                      Email provider settings
+  /dashboard/settings/sms                        SMS / Twilio settings
+  /dashboard/settings/tags                       Contact tag definitions
+  /dashboard/settings/canned-message             Canned message library
+
+  -- Billing --
+  /dashboard/billing                             Subscription & credit management
+
+--- Admin Panel (restricted to PLATFORM_ADMIN_EMAILS) ---
+/admin                     Overview dashboard
+/admin/plans               Subscription plan CRUD
+/admin/credit-packs        Credit pack CRUD
+/admin/credit-weights      Credit weight matrix (cost per channel/type)
+/admin/transactions        Credit ledger and transaction history
+/admin/users               User list, promote to admin, adjust credits
+/admin/settings            Platform-wide settings and feature toggles
+/admin/audit-log           Admin action audit trail
+
+--- Internal / Hidden Pages ---
+/noise                     ASCII noise/art demo (not linked publicly)
+/protected                 Protected test/demo page
+
+
+====================================================
+API ROUTES (summary)
+====================================================
+
+Auth
+  POST /api/auth/callback
+
+Profile
+  GET|PUT  /api/profile
+  PUT      /api/profile/password
+  GET|PUT  /api/profile/notifications
+
+Projects
+  GET|POST                          /api/projects
+  GET                               /api/projects/select
+  POST                              /api/projects/select-and-redirect
+  GET|PUT                           /api/projects/[id]
+  GET                               /api/projects/[id]/team
+  POST|DELETE                       /api/projects/[id]/members/[userId]
+  GET|POST                          /api/projects/[id]/invites
+  GET|PUT|DELETE                    /api/projects/[id]/invites/[inviteId]
+
+WhatsApp (all under /api/projects/[id]/whatsapp/)
+  account, account/register, account/refresh
+  campaigns, campaigns/[id], campaigns/[id]/send-to,
+  campaigns/[id]/cancel, campaigns/[id]/retry-failed, campaigns/[id]/send-now-debug
+  contacts, contacts/import, contacts/bulk-update, contacts/[id], contacts/[id]/profile
+  conversations, conversations/[contactId], conversations/[contactId]/messages,
+  conversations/[contactId]/mark-read, conversations/[contactId]/media
+  media/[messageId]
+  templates, templates/[id], templates/[id]/submit, templates/[id]/refresh-status,
+  templates/[id]/logs, templates/[id]/test-message
+  templates/meta, templates/sync
+  quick-replies
+  tag-definitions, tag-definitions/[tagId]
+  contact-tags
+  segments, audience-count
+  settings, settings/upload
+  analytics
+  oauth/callback
+
+Email (all under /api/projects/[id]/email/)
+  campaigns, campaigns/[id], campaigns/[id]/send-to, campaigns/[id]/send-one
+  test-send
+  subscribers, subscribers/[id], subscribers/import
+  templates, templates/[id]
+  settings, verify-domain
+  analytics
+
+SMS (all under /api/projects/[id]/sms/)
+  campaigns, campaigns/[id], campaigns/[id]/send-to, campaigns/[id]/actions
+  contacts, contacts/[id], contacts/import
+  conversations, conversations/[contactId], conversations/[contactId]/messages
+  templates, templates/[id]
+  numbers
+  settings, account
+  analytics
+
+Canned Messages
+  GET|POST                          /api/projects/[id]/canned-messages
+  GET|PUT|DELETE                    /api/projects/[id]/canned-messages/[id]
+  POST                              /api/projects/[id]/canned-messages/upload
+  POST                              /api/projects/[id]/canned-messages/signed-url
+
+Billing
+  GET|PUT  /api/projects/[id]/billing
+  POST     /api/projects/[id]/billing/checkout
+  POST     /api/projects/[id]/billing/topup
+  POST     /api/projects/[id]/billing/cancel
+  GET      /api/projects/[id]/billing/portal
+  GET      /api/projects/[id]/billing/wallet
+
+Admin
+  GET      /api/admin/overview
+  CRUD     /api/admin/plans
+  CRUD     /api/admin/credit-packs
+  CRUD     /api/admin/credit-weights
+  GET      /api/admin/transactions
+  GET      /api/admin/users
+  GET      /api/admin/audit-log
+  GET|POST|PUT /api/admin/settings
+  POST     /api/admin/projects
+  POST     /api/admin/credits/adjust
+  POST     /api/admin/credits/refund
+
+Invitations
+  GET      /api/invite/[token]
+  POST     /api/invite/[token]/decline
+  GET      /api/invites/pending
+
+Webhooks
+  POST     /api/webhooks/stripe
+  POST     /api/webhooks/razorpay
+  POST     /api/webhooks/resend
+  POST     /api/webhooks/twilio/inbound
+  POST     /api/webhooks/twilio/status
+  POST     /api/webhooks/whatsapp
+
+Cron Jobs (protected by CRON_SECRET header)
+  GET      /api/cron/email-send           Batch email sending
+  GET      /api/cron/sms-send             Batch SMS sending
+  GET      /api/cron/whatsapp-send        Batch WhatsApp sending
+  GET      /api/cron/whatsapp-health      WhatsApp cron health check
+  GET      /api/cron/billing-emails       Billing notification emails
+
+Other
+  POST     /api/unsubscribe               Email unsubscribe handler
+  GET      /api/whatsapp/config           WhatsApp webhook config
+  POST     /api/whatsapp/callback         WhatsApp callback handler
+
+
+====================================================
+DATABASE TABLES (35+)
+====================================================
+
+User & Auth
+  profiles                        User profile (name, phone, avatar, company)
+  project_members                 Team membership + roles
+  project_invites                 Pending invitations
+
+Project Management
+  projects                        Project/workspace records
+  project_subscriptions           Active plan per project
+
+Billing & Credits
+  subscription_plans              Plan definitions (admin-managed)
+  credit_packs                    Top-up pack definitions (admin-managed)
+  credit_weights                  Credit cost matrix (admin-managed)
+  credit_wallets                  Per-project credit balance
+  credit_ledger                   Credit transaction history
+  billing_email_log               Billing notification delivery log
+
+WhatsApp
+  whatsapp_accounts               WABA credentials
+  whatsapp_account_settings       Display/business settings
+  whatsapp_campaigns              Campaign records
+  whatsapp_campaign_recipients    Recipient list per campaign
+  whatsapp_contacts               Contact directory
+  whatsapp_contact_tags           Contact↔tag mapping
+  whatsapp_tag_definitions        Tag labels per project
+  whatsapp_conversations          Conversation threads
+  whatsapp_messages               Individual messages
+  whatsapp_templates              Approved templates
+  whatsapp_quick_replies          Quick reply shortcuts
+  contact_segments                Audience segments
+
+Email
+  email_campaigns                 Campaign records
+  email_campaign_recipients       Recipient list per campaign
+  email_subscribers               Subscriber directory
+  email_templates                 HTML template records
+  email_sends                     Individual send records
+  project_email_settings          Domain/provider configuration
+
+SMS
+  sms_accounts                    Twilio credentials
+  sms_account_settings            Account settings
+  sms_campaigns                   Campaign records
+  sms_campaign_recipients         Recipient list per campaign
+  sms_contacts                    Contact directory
+  sms_conversations               Conversation threads
+  sms_messages                    Individual messages
+  sms_numbers                     Phone numbers
+  sms_templates                   Message templates
+
+Messaging
+  canned_messages                 Saved templates with media attachments
+
+Settings & Logging
+  project_campaign_counts_current_month   Monthly usage tracking
+  notification_preferences                Per-user notification settings
+  platform_settings                       Global platform configuration
+  admin_audit_log                         Admin action audit trail
+  usage_events                            General event logging
+
+
+====================================================
+INTEGRATIONS & ENVIRONMENT VARIABLES
+====================================================
+
+Supabase (Database + Auth + Storage)
+  NEXT_PUBLIC_SUPABASE_URL
+  NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
+  SUPABASE_SERVICE_ROLE_KEY
+
+Email Provider (Resend or SMTP)
+  EMAIL_PROVIDER                  "resend" or "smtp"
+  RESEND_API_KEY
+  RESEND_INBOUND_DOMAIN
+  RESEND_INBOUND_WEBHOOK_SECRET
+  RESEND_WEBHOOK_SECRET
+  SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS
+  EMAIL_FROM
+  EMAIL_FALLBACK_DOMAIN
+  ENCRYPTION_KEY                  Encrypts subscriber data
+  UNSUBSCRIBE_SECRET              Secure unsubscribe links
+  INBOUND_TOKEN_SECRET            Inbound email tokens
+
+WhatsApp (Meta Graph API)
+  FACEBOOK_APP_ID
+  FACEBOOK_APP_SECRET
+  WHATSAPP_CONFIG_ID
+  WHATSAPP_VERIFY_TOKEN
+  WHATSAPP_DEBUG
+
+SMS (Twilio)
+  TWILIO_ACCOUNT_SID
+  TWILIO_AUTH_TOKEN
+  TWILIO_OAUTH_CLIENT_ID
+  TWILIO_OAUTH_CLIENT_SECRET
+  TWILIO_OAUTH_SCOPE
+  TWILIO_STATUS_CALLBACK_URL
+
+Payments
+  STRIPE_SECRET_KEY
+  STRIPE_WEBHOOK_SECRET
+  STRIPE_PRICE_*                  Price IDs per plan/cycle/currency
+  RAZORPAY_KEY_ID
+  RAZORPAY_KEY_SECRET
+
+App Configuration
+  NEXT_PUBLIC_APP_URL             Base URL (used for OAuth redirects)
+  NEXT_PUBLIC_BILLING_ENABLED
+  NEXT_PUBLIC_EMAIL_ENABLED
+  NEXT_PUBLIC_SMS_ENABLED
+  PLATFORM_ADMIN_EMAILS           Comma-separated; auto-promoted to admin on login
+  CRON_SECRET                     Authorization token for cron endpoints
+  bearer_token                    Generic bearer token
+
+
+====================================================
+TECH STACK
+====================================================
+
+Frontend
+  Next.js 15 (App Router)
+  React 19
+  TypeScript
+  TailwindCSS
+  Radix UI (headless components)
+  Lucide Icons
+  SimpleIcons
+  CodeMirror (HTML editor)
+  React Hook Form
+  Zod (schema validation)
+  Sonner (toast notifications)
+
+Backend
+  Next.js API Routes
+  Supabase (PostgreSQL, Auth, Storage)
+  Nodemailer (SMTP sending)
+  DOMPurify (HTML sanitization)
+
+External Services
+  Resend       — transactional email
+  Twilio       — SMS
+  Meta Graph API — WhatsApp Business
+  Stripe       — payments (USD)
+  Razorpay     — payments (INR)
+
+
+====================================================
+ONBOARDING / SETUP FLOW
+====================================================
+
+Three-step process:
+  1. Connect channels
+     - WhatsApp: Meta Embedded Signup (user retains WABA ownership)
+     - Email:    Domain verification via Resend or SMTP config
+     - SMS:      Twilio OAuth connection + 10DLC registration (US/Canada)
+  2. Add contacts (CSV import with custom field mapping)
+  3. Send / reply / automate
+
+Authentication options:
+  - Sign in with Google (OAuth)
+  - Email + password
+
+
+====================================================
+USE CASES
+====================================================
+
+E-commerce    : cart recovery, order confirmations
+Real estate   : lead nurture, conversation assignment
+Education     : admissions comms, fee reminders
+Fintech       : OTPs, KYC reminders, audit logs
+SaaS          : trial nurture, onboarding sequences
+Agencies      : multi-workspace management, per-client billing
+
+
+====================================================
+ADMIN PANEL (internal — not publicly advertised)
+====================================================
+
+Access control: Users whose email is in PLATFORM_ADMIN_EMAILS env var
+are auto-promoted to platform admin on login.
+
+Sections:
+  Overview          — System-wide stats, active plans, credit weights summary
+  Plans             — Create/edit/delete subscription plans, set per-currency pricing
+  Credit Packs      — Manage top-up packages and their prices
+  Credit Weights    — Configure the credit cost matrix per channel and message type
+  Transactions      — Full credit ledger; manual adjust and refund tools
+  Users             — List all users, promote to admin, view user details
+  Platform Settings — Global feature toggles and configuration
+  Audit Log         — Immutable log of all admin actions
+
+
+====================================================
+FEATURE FLAGS (runtime toggles)
+====================================================
+
+NEXT_PUBLIC_BILLING_ENABLED   — show/hide billing UI
+NEXT_PUBLIC_EMAIL_ENABLED     — enable Email channel (locked in sidebar if false)
+NEXT_PUBLIC_SMS_ENABLED       — enable SMS channel (locked in sidebar if false)
+
+
+====================================================
+LEGAL PAGES
+====================================================
+
+/legal/privacy          Privacy Policy
+/legal/terms            Terms of Service
+/legal/dpa              Data Processing Agreement
+/legal/refund           Refund Policy
+/legal/cookies          Cookie Policy
+/legal/acceptable-use   Acceptable Use Policy
+
+
+====================================================
+PLATFORM STATISTICS (from codebase)
+====================================================
+
+Total pages:          51+ (including dynamic routes)
+API routes:           100+
+Database tables:      35+
+UI components:        50+
+Payment providers:    2 (Stripe, Razorpay)
+Major integrations:   5 (Email/Resend, SMS/Twilio, WhatsApp/Meta, Stripe, Razorpay)
+Admin pages:          8 (restricted)
+User roles per project: 4 (Owner, Admin, Editor, Viewer)
+Feature flags:        3
+
+
+====================================================
+END OF DETAILS
+====================================================
