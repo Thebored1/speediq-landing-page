@@ -172,3 +172,18 @@ body {
 
 /* InboxVisual / BroadcastVisual / etc. paper fill becomes white in light */
 [data-theme="light"] .feature-visual-paper { fill: #ffffff !important; }
+
+/* Highlighted pricing card stays dark in light mode — re-declare fg vars so
+   every child that uses var(--clr-fg*) stays readable on the #111 background */
+[data-theme="light"] .pricing-highlight {
+  --clr-fg:          #ffffff;
+  --clr-fg2:         rgba(255,255,255,0.72);
+  --clr-fg3:         rgba(255,255,255,0.52);
+  --clr-fg4:         rgba(255,255,255,0.42);
+  --clr-tag:         rgba(255,255,255,0.45);
+  --clr-line:        rgba(255,255,255,0.08);
+  --clr-line2:       rgba(255,255,255,0.12);
+  --dropdown-hover:  rgba(255,255,255,0.04);
+  --clr-cta:         #ffffff;
+  --clr-cta-fg:      #000000;
+}

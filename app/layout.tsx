@@ -28,6 +28,7 @@ export default function RootLayout({
       lang="en"
       data-theme="dark"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       {/* Prevent flash of wrong theme by reading localStorage before React hydrates */}
       <head>

@@ -32,24 +32,24 @@ function SmsPhonePreview() {
   return (
     <div style={{ background: "#1a1a2e", border: `1px solid ${T.line2}`, borderRadius: 24, overflow: "hidden", width: 260, fontFamily: "-apple-system, sans-serif", padding: "0 0 8px" }}>
       <div style={{ background: "#0d0d1a", padding: "10px 16px 8px", display: "flex", justifyContent: "space-between" }}>
-        <span style={{ fontSize: 11, color: "var(--clr-fg3)", fontWeight: 600 }}>9:41</span>
-        <span style={{ fontSize: 11, color: "var(--clr-fg3)" }}>●●● LTE</span>
+        <span style={{ fontSize: 11, color: "rgba(255,255,255,0.56)", fontWeight: 600 }}>9:41</span>
+        <span style={{ fontSize: 11, color: "rgba(255,255,255,0.56)" }}>●●● LTE</span>
       </div>
       <div style={{ background: "#0d0d1a", padding: "6px 16px 12px", textAlign: "center", borderBottom: "1px solid var(--clr-line)" }}>
-        <div style={{ fontSize: 13, fontWeight: 600, color: "var(--clr-fg)" }}>Messages</div>
+        <div style={{ fontSize: 13, fontWeight: 600, color: "#ffffff" }}>Messages</div>
       </div>
       <div style={{ padding: "8px 0" }}>
         {msgs.map((msg, i) => (
           <div key={i} style={{ padding: "10px 14px", borderBottom: i < msgs.length - 1 ? "1px solid var(--clr-line)" : undefined, display: "flex", gap: 10, alignItems: "flex-start" }}>
-            <div style={{ width: 34, height: 34, borderRadius: "50%", background: i === 0 ? PURPLE : i === 1 ? "#6366f1" : "#8b5cf6", display: "grid", placeItems: "center", fontSize: 12, fontWeight: 700, color: "var(--clr-fg)", flexShrink: 0 }}>
+            <div style={{ width: 34, height: 34, borderRadius: "50%", background: i === 0 ? PURPLE : i === 1 ? "#6366f1" : "#8b5cf6", display: "grid", placeItems: "center", fontSize: 12, fontWeight: 700, color: "#ffffff", flexShrink: 0 }}>
               {msg.from[0]}
             </div>
             <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 3 }}>
-                <span style={{ fontSize: 11, fontWeight: 700, color: "var(--clr-fg)" }}>{msg.from}</span>
-                <span style={{ fontSize: 9, color: "var(--clr-fg4)" }}>now</span>
+                <span style={{ fontSize: 11, fontWeight: 700, color: "#ffffff" }}>{msg.from}</span>
+                <span style={{ fontSize: 9, color: "rgba(255,255,255,0.44)" }}>now</span>
               </div>
-              <div style={{ fontSize: 10.5, color: "var(--clr-fg3)", lineHeight: 1.45, overflow: "hidden", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const }}>{msg.text}</div>
+              <div style={{ fontSize: 10.5, color: "rgba(255,255,255,0.56)", lineHeight: 1.45, overflow: "hidden", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const }}>{msg.text}</div>
             </div>
           </div>
         ))}
@@ -99,7 +99,7 @@ export default function SmsFeaturePage() {
                     OTPs, promotions, and transactional alerts across 190+ countries. Carrier compliance handled automatically.
                   </p>
                   <div style={{ display: "flex", gap: 12 }}>
-                    <Link href="/auth/sign-up" style={{ display: "inline-flex", alignItems: "center", padding: "11px 24px", background: PURPLE, color: "var(--clr-fg)", fontFamily: "'Courier New', monospace", fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const, textDecoration: "none" }}>Start Free</Link>
+                    <Link href="/auth/sign-up" style={{ display: "inline-flex", alignItems: "center", padding: "11px 24px", background: PURPLE, color: "#ffffff", fontFamily: "'Courier New', monospace", fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const, textDecoration: "none" }}>Start Free</Link>
                     <Link href="/features" style={{ display: "inline-flex", alignItems: "center", padding: "11px 24px", background: "transparent", color: T.fg3, fontFamily: "'Courier New', monospace", fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const, textDecoration: "none", border: `1px solid ${T.line3}` }}>All Features</Link>
                   </div>
                 </div>
@@ -128,7 +128,7 @@ export default function SmsFeaturePage() {
                   <div key={i} style={{ padding: "52px 52px", borderRight: i % 2 === 0 ? `1px solid ${T.line}` : undefined, borderBottom: i < 2 ? `1px solid ${T.line}` : undefined, display: "flex", flexDirection: "column", gap: 16, background: i === 1 || i === 2 ? T.bg2 : T.bg }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
                       <span style={{ fontFamily: "'Courier New', monospace", fontSize: 13, fontWeight: 300, color: T.num }}>{f.n}</span>
-                      <span style={{ fontFamily: "'Courier New', monospace", fontSize: 9, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" as const, color: f.color }}>{f.tag}</span>
+                      <span style={{ fontFamily: "'Courier New', monospace", fontSize: 9, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" as const, color: T.fg }}>{f.tag}</span>
                     </div>
                     <h2 style={{ fontSize: "clamp(16px, 2vw, 21px)", fontWeight: 500, letterSpacing: "-0.02em", color: T.fg, margin: 0, lineHeight: 1.3 }}>{f.title}</h2>
                     <p style={{ fontSize: 14, color: T.fg3, lineHeight: 1.75, margin: 0 }}>{f.body}</p>
@@ -148,7 +148,7 @@ export default function SmsFeaturePage() {
                 <h2 style={{ fontSize: "clamp(20px, 3vw, 36px)", fontWeight: 500, letterSpacing: "-0.025em", color: T.fg, margin: "0 0 10px" }}>Ready to add SMS to your stack?</h2>
                 <p style={{ fontSize: 15, color: T.fg4, margin: 0 }}>0.5 credits per SMS. No monthly minimums. Cancel anytime.</p>
               </div>
-              <Link href="/auth/sign-up" style={{ flexShrink: 0, display: "inline-flex", alignItems: "center", padding: "14px 32px", background: PURPLE, color: "var(--clr-fg)", fontFamily: "'Courier New', monospace", fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const, textDecoration: "none", whiteSpace: "nowrap" as const }}>
+              <Link href="/auth/sign-up" style={{ flexShrink: 0, display: "inline-flex", alignItems: "center", padding: "14px 32px", background: PURPLE, color: "#ffffff", fontFamily: "'Courier New', monospace", fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const, textDecoration: "none", whiteSpace: "nowrap" as const }}>
                 Start Free Trial →
               </Link>
             </div>

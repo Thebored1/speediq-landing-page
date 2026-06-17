@@ -2,7 +2,8 @@
 
 import { type CSSProperties, type ReactNode, useEffect, useRef, useState } from "react"
 import { AsciiNoise } from "@/components/ascii/ascii-noise"
-import { HeaderLight } from "@/components/navigation/header-light"
+import { Header } from "@/components/navigation/header"
+import { PricingCalculator } from "@/components/home/pricing-calculator"
 import {
   ArrowIcon,
   Btn,
@@ -135,13 +136,13 @@ function MarketCircles() {
         return (
           <g key={i}>
             <circle cx={cx} cy={cy} r={t.r} fill="none"
-              stroke="rgba(0,0,0,0.1)" strokeWidth="1" strokeDasharray={i > 0 ? "3 4" : undefined}
+              stroke="rgba(0,0,0,0.25)" strokeWidth="1" strokeDasharray={i > 0 ? "3 4" : undefined}
               className={i === 1 ? "spin-ring-1" : i === 2 ? "spin-ring-2" : ""}
             />
             <text x={cx} y={topY + 13}
               textAnchor="middle" fontFamily="'Courier New', monospace"
               fontSize="8" letterSpacing="0.12em"
-              fill="rgba(0,0,0,0.3)"
+              fill="rgba(0,0,0,0.55)"
             >{t.label}</text>
             <text x={cx} y={topY + 29}
               textAnchor="middle" fontFamily="'Courier New', monospace"
@@ -152,7 +153,7 @@ function MarketCircles() {
         )
       })}
       {/* Centre dot */}
-      <circle cx={cx} cy={cy} r={2} fill="rgba(0,0,0,0.15)" />
+      <circle cx={cx} cy={cy} r={2} fill="rgba(0,0,0,0.4)" />
     </svg>
   )
 }
@@ -176,7 +177,7 @@ const PAIN_LINES = [
 const PLATFORM_COLS = [
   {
     n: "01", title: "Unified Inbox",
-    items: ["Manage conversations across apps", "Assign threads to team members", "Quick replies and templates", "Nothing falls through the cracks"],
+    items: ["WhatsApp, SMS, email, and social — one inbox", "Assign threads to team members", "Quick replies and templates", "Nothing falls through the cracks"],
   },
   {
     n: "02", title: "Broadcasts & Segments",
@@ -307,22 +308,22 @@ function TemplateVisual() {
 const FEATURES: { title: string; body: string; visual: ReactNode }[] = [
   {
     title: "Visual Workflow Builder",
-    body: "Drag-and-drop automations with triggers, branching logic, and webhooks. Automatically respond to email replies or inbound SMS.",
+    body: "Build automated flows with triggers and conditions. Set rules like 'wait 2 days then send a follow-up' — no code needed.",
     visual: <InboxVisual />,
   },
   {
     title: "Advanced Segmentation",
-    body: "Filter your audience using AND/OR logic. See real-time audience size estimations and apply dynamic tagging to contacts.",
+    body: "Filter contacts with AND/OR logic. See live audience size as you build and tag contacts automatically.",
     visual: <BroadcastVisual />,
   },
   {
     title: "Unified Team Inbox",
-    body: "Manage conversations across WhatsApp and SMS in one place. Assign threads, use quick replies, and attach media seamlessly.",
+    body: "All WhatsApp and SMS replies in one shared inbox. Assign threads to team members and use saved replies.",
     visual: <AnalyticsVisual />,
   },
   {
     title: "Cross-Channel Analytics",
-    body: "Track delivery, open, click, and reply rates across WhatsApp, Email, and SMS. Store data up to 1 year on enterprise plans.",
+    body: "Track delivery, opens, clicks, and replies across WhatsApp, Email, and SMS. Keep data for up to one year.",
     visual: <TemplateVisual />,
   },
 ]
@@ -371,14 +372,14 @@ export function LightPage() {
           --radius-sm: 6px;
         }
         .dot-grid {
-          background-image: radial-gradient(circle, rgba(0,0,0,0.065) 1px, transparent 1px);
+          background-image: radial-gradient(circle, rgba(0,0,0,0.35) 1px, transparent 1px);
           background-size: 20px 20px;
         }
       `}</style>
 
-      <HeaderLight />
+      <Header />
       <div className="gf" style={{ fontFamily: "var(--font-sans)", background: "#ffffff" }}>
-        <div style={{ maxWidth: 1920, margin: "0 auto", position: "relative", overflow: "hidden" }}>
+        <div style={{ maxWidth: 1920, margin: "0 auto", position: "relative", overflow: "hidden", background: "#ffffff" }}>
 
         {/* ── NAV + HERO ────────────────────── */}
         <div>
@@ -448,7 +449,7 @@ export function LightPage() {
                     padding: "6px 12px", borderRadius: "20px", border: "1px solid rgba(0,0,0,0.1)"
                   }}>
                     <span style={{ width: 8, height: 8, background: "#000000", borderRadius: "50%" }} />
-                    OMNICHANNEL AUTOMATION
+                    MARKETING CMS & AUTOMATION
                   </div>
 
                   <h1 style={{
@@ -458,8 +459,9 @@ export function LightPage() {
                     fontWeight: 500, margin: 0, color: "#000000", maxWidth: "800px",
                     textShadow: "0 4px 40px rgba(255,255,255,0.8)",
                   }}>
-                    One inbox for WhatsApp,<br />
-                    <ItalicEmph>Email & SMS.</ItalicEmph>
+                    Campaigns, conversations &<br />
+                    everything between.<br />
+                    <ItalicEmph>One CMS.</ItalicEmph>
                   </h1>
 
                   <p style={{
@@ -467,14 +469,15 @@ export function LightPage() {
                     color: "rgba(0,0,0,0.52)", maxWidth: 600,
                     textShadow: "0 1px 12px rgba(255,255,255,0.9)",
                   }}>
-                    A SaaS marketing automation platform consolidating broadcasts, templates, segments, and analytics into a unified workspace. Automate, engage, and scale.
+                    Broadcasts, templates, segments, a unified inbox, and analytics across WhatsApp, Email, SMS, and social media — all in one workspace, on one bill.
                   </p>
 
-                  <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 4, color: "rgba(0,0,0,0.7)", fontSize: 14 }}>
-                     <div style={{ display: "flex", gap: 2 }}>
-                        {[1,2,3,4,5].map(i => <span key={i} style={{color: "#000000", fontSize: 16}}>★</span>)}
-                     </div>
-                     <div>4.9 • 5.5k Ratings <span style={{textDecoration: "underline", color: "rgba(0,0,0,0.4)", marginLeft: 4, cursor: "pointer"}}>10K+ Reviews</span></div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 4, color: "rgba(0,0,0,0.45)", fontSize: 12, fontFamily: "var(--font-mono)", letterSpacing: "0.05em" }}>
+                    <span>7-day free trial</span>
+                    <span style={{ color: "rgba(0,0,0,0.2)" }}>·</span>
+                    <span>200 credits included</span>
+                    <span style={{ color: "rgba(0,0,0,0.2)" }}>·</span>
+                    <span>no credit card needed</span>
                   </div>
 
                   <div style={{ display: "flex", gap: 12, flexWrap: "wrap" as const, justifyContent: "flex-start", marginTop: 8 }}>
@@ -482,9 +485,9 @@ export function LightPage() {
                       style={{ background: "#000000", color: "#ffffff", border: "none", fontFamily: "inherit", fontWeight: 500 }}>
                       START FREE TRIAL
                     </Btn>
-                    <Btn href="/compare" variant="ghost" size="lg"
+                    <Btn href="/pricing" variant="ghost" size="lg"
                       style={{ background: "transparent", border: "1px solid rgba(0,0,0,0.2)", color: "#000000", fontFamily: "inherit" }}>
-                      Try CRM for free
+                      See pricing
                     </Btn>
                   </div>
                 </div>
@@ -586,16 +589,15 @@ export function LightPage() {
                 </div>
 
                 {/* Centered smaller square ASCII panel */}
-                <div className="dot-grid" style={{
+                <div style={{
                   display: "flex", alignItems: "center", justifyContent: "center",
-                  background: "#f5f5f5",
                 }}>
                   <div style={{
                     width: 320, height: 320,
                     border: "1px solid rgba(0,0,0,0.08)",
                     position: "relative"
                   }}>
-                    <AsciiPanel style={{ width: "100%", height: "100%" }} />
+                    <AsciiPanel bgColor="#f5f5f5" fgColor="#2b2b2b" style={{ width: "100%", height: "100%" }} />
                   </div>
                 </div>
               </div>
@@ -744,13 +746,13 @@ export function LightPage() {
                 fontWeight: 500, letterSpacing: "-0.025em", lineHeight: 1.1,
                 color: "#000000", margin: "0 0 16px", maxWidth: 600,
               }}>
-                Unified Workspace for Modern Marketing
+                Everything you need, in one place
               </h2>
               <p style={{
                 fontFamily: "var(--font-sans)", fontSize: 16, lineHeight: 1.6,
                 color: "rgba(0,0,0,0.46)", margin: 0, maxWidth: 540,
               }}>
-                From building visual workflows to running cross-channel broadcasts, SpeedIQ brings your entire marketing stack under one roof—ensuring seamless engagement without compromising speed or scale.
+                Build automations, send broadcasts, and reply to customers — all from one workspace. No switching tools.
               </p>
             </div>
 
@@ -790,8 +792,9 @@ export function LightPage() {
 
                     <div style={{
                       position: "absolute",
-                      right: -10, bottom: 0,
-                      width: 380, height: 380,
+                      right: 12, bottom: 12,
+                      width: 200, height: 200,
+                      opacity: 0.9,
                       pointerEvents: "none",
                     }}>
                       {f.visual}
@@ -801,7 +804,9 @@ export function LightPage() {
               ))}
             </div>
           </div>
-        </div>        {/* ── SPACER ──────────────────────────────────────────────────────── */}
+        </div>
+
+        {/* ── SPACER ──────────────────────────────────────────────────────── */}
         <div style={{ borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
           <div style={{
             margin: "0 40px",
@@ -817,15 +822,15 @@ export function LightPage() {
             
             <div style={{ padding: "64px 40px 80px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
               <div style={{ fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.1em", color: "rgba(0,0,0,0.6)", textTransform: "uppercase", marginBottom: 24 }}>
-                Omnichannel marketing designed for scale.
+                Messaging, email, SMS, and social — one platform.
               </div>
-              
+
               <h2 style={{
                 fontFamily: "var(--font-sans)", fontSize: "clamp(28px, 3.5vw, 44px)",
                 fontWeight: 500, letterSpacing: "-0.025em", lineHeight: 1.1,
-                color: "#000000", maxWidth: 800, margin: 0,
+                color: "#000000", maxWidth: 800, margin: "0 0 24px",
               }}>
-                Unified campaigns across WhatsApp, Email, and SMS.
+                Every channel, unified.
               </h2>
             </div>
 
@@ -835,17 +840,17 @@ export function LightPage() {
                 {
                   icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>,
                   title: "WhatsApp.",
-                  desc: "Engage customers globally with official Meta Business API. Send rich templates, automate replies, and handle live chats seamlessly."
+                  desc: "Uses Meta's official Business API. Send approved templates, run broadcasts, and reply to customers in a live inbox."
                 },
                 {
                   icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>,
                   title: "Email.",
-                  desc: "Build beautiful emails with our drag-and-drop HTML builder. Schedule campaigns, track open rates, and manage subscriptions with ease."
+                  desc: "Drag-and-drop email builder with custom domain sending. Schedule campaigns and track opens, clicks, and unsubscribes."
                 },
                 {
                   icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>,
                   title: "SMS.",
-                  desc: "Deliver critical alerts, OTPs, and promotional texts directly to users' phones with Twilio-powered global SMS and 10DLC support."
+                  desc: "Powered by Twilio with 10DLC compliance for US numbers. Send alerts, promotions, and OTPs globally."
                 }
               ].map((step, i) => (
                 <div key={i} style={{
@@ -1001,7 +1006,7 @@ function DashboardPreview() {
       borderRadius: "16px",
       display: "flex",
       overflow: "hidden",
-      boxShadow: "0 40px 100px rgba(0,0,0,0.8), inset 0 1px 0 rgba(0,0,0,0.05)",
+      boxShadow: "0 40px 100px rgba(255,255,255,0.8), inset 0 1px 0 rgba(0,0,0,0.05)",
     }}>
       {/* Sidebar */}
       <div style={{ width: "220px", background: "#020202", borderRight: "1px solid rgba(0,0,0,0.05)", display: "flex", flexDirection: "column", padding: "20px" }}>

@@ -99,6 +99,22 @@ const PLATFORM_FEATURES = [
   },
 ]
 
+const WORKFLOW = [
+  { n: "01", title: "Import", body: "Bring contacts in via CSV, API, or native web form capture." },
+  { n: "02", title: "Segment", body: "Slice your audience with AND/OR filters and live size estimates." },
+  { n: "03", title: "Compose", body: "Pick a channel, drop in a template, personalize with variables." },
+  { n: "04", title: "Broadcast", body: "Schedule the send and watch delivery land in real time." },
+]
+
+const PLATFORM_STATS = [
+  { v: "3", l: "channels, one workspace" },
+  { v: "98%+", l: "average delivery rate" },
+  { v: "<2s", l: "median send latency" },
+  { v: "1 yr", l: "data retention on Business" },
+]
+
+const TRUST = ["10DLC Registered", "Meta Business API", "GDPR & DPA Ready", "99.9% Uptime SLA", "SOC 2 Practices"]
+
 function SiteFooter() {
   return (
     <footer style={{ background: "var(--clr-bg)" }}>
@@ -183,33 +199,112 @@ export default function FeaturesPage() {
             </div>
           </div>
 
-          {/* ── PLATFORM LABEL ── */}
-          <div style={{ borderBottom: "1px solid var(--clr-line)", background: "var(--clr-bg)" }}>
-            <div style={{ margin: "0 40px", borderLeft: "1px solid var(--clr-line)", borderRight: "1px solid var(--clr-line)", padding: "18px 56px" }}>
-              <Tag>Platform tools</Tag>
+          {/* ── PLATFORM TOOLS (spec sheet) ── */}
+          <div style={{ borderBottom: "1px solid var(--clr-line)" }}>
+            <div style={{ margin: "0 40px", borderLeft: "1px solid var(--clr-line)", borderRight: "1px solid var(--clr-line)" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "0.85fr 1.15fr" }}>
+                {/* Left: intro */}
+                <div style={{ padding: "56px 56px", borderRight: "1px solid var(--clr-line)", background: "var(--clr-bg)", display: "flex", flexDirection: "column" as const, gap: 20 }}>
+                  <Tag>Platform tools</Tag>
+                  <h2 style={{ fontSize: "clamp(24px, 3vw, 38px)", fontWeight: 500, letterSpacing: "-0.025em", color: "var(--clr-fg)", margin: 0, lineHeight: 1.1, maxWidth: 360 }}>
+                    One toolkit behind every channel.
+                  </h2>
+                  <p style={{ fontSize: 15, lineHeight: 1.7, color: "var(--clr-fg3)", margin: 0, maxWidth: 340 }}>
+                    Segmentation, automation, analytics, and team controls all run on shared infrastructure — so a contact, a template, or a report means the same thing everywhere.
+                  </p>
+                  <div style={{ fontFamily: '"Courier New", monospace', fontSize: 11, letterSpacing: "0.08em", color: "var(--clr-fg5)", marginTop: "auto" }}>
+                    {"// "}{PLATFORM_FEATURES.length} core modules
+                  </div>
+                </div>
+                {/* Right: tool list */}
+                <div>
+                  {PLATFORM_FEATURES.map((f, i) => (
+                    <div key={f.n} style={{
+                      display: "grid",
+                      gridTemplateColumns: "56px 1fr",
+                      gap: 16,
+                      padding: "24px 40px",
+                      background: i % 2 === 0 ? "var(--clr-bg3)" : "var(--clr-bg2)",
+                      borderBottom: i < PLATFORM_FEATURES.length - 1 ? "1px solid var(--clr-line)" : undefined,
+                      transition: "background 0.15s",
+                    }}
+                    onMouseEnter={e => (e.currentTarget.style.background = "var(--dropdown-hover)")}
+                    onMouseLeave={e => (e.currentTarget.style.background = i % 2 === 0 ? "var(--clr-bg3)" : "var(--clr-bg2)")}
+                    >
+                      <div style={{ fontFamily: '"Courier New", monospace', fontSize: 18, fontWeight: 300, color: "var(--clr-line3)", letterSpacing: "0.02em", paddingTop: 2 }}>{f.n}</div>
+                      <div>
+                        <h3 style={{ fontSize: 16, fontWeight: 500, color: "var(--clr-fg)", margin: "0 0 6px", letterSpacing: "-0.01em" }}>{f.title}</h3>
+                        <p style={{ fontFamily: '"Courier New", monospace', fontSize: 11, letterSpacing: "0.04em", color: "var(--clr-fg4)", lineHeight: 1.85, margin: 0, maxWidth: 440 }}>{f.body}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* ── PLATFORM FEATURES GRID ── */}
+          {/* ── WORKFLOW (4 steps) ── */}
           <div style={{ borderBottom: "1px solid var(--clr-line)" }}>
             <div style={{ margin: "0 40px", borderLeft: "1px solid var(--clr-line)", borderRight: "1px solid var(--clr-line)" }}>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }}>
-                {PLATFORM_FEATURES.map((f, i) => {
-                  const isLastRow = i >= PLATFORM_FEATURES.length - (PLATFORM_FEATURES.length % 3 || 3)
-                  return (
-                    <div key={f.n} style={{
-                      padding: "36px 40px",
-                      background: i % 2 === 0 ? "var(--clr-bg3)" : "var(--clr-bg2)",
-                      borderRight: (i + 1) % 3 !== 0 ? "1px solid var(--clr-line)" : undefined,
-                      borderBottom: !isLastRow ? "1px solid var(--clr-line)" : undefined,
-                    }}>
-                      <div style={{ fontFamily: '"Courier New", monospace', fontSize: 18, fontWeight: 300, color: "var(--clr-line3)", letterSpacing: "0.02em", marginBottom: 10 }}>{f.n}</div>
-                      <h3 style={{ fontSize: 16, fontWeight: 500, color: "var(--clr-fg)", margin: "0 0 12px", letterSpacing: "-0.01em" }}>{f.title}</h3>
-                      <p style={{ fontFamily: '"Courier New", monospace', fontSize: 11, letterSpacing: "0.04em", color: "var(--clr-fg4)", lineHeight: 1.9, margin: 0 }}>{f.body}</p>
-                    </div>
-                  )
-                })}
+              <div style={{ padding: "56px 56px 28px" }}>
+                <Tag>Workflow</Tag>
+                <h2 style={{ fontSize: "clamp(24px, 3vw, 40px)", fontWeight: 500, letterSpacing: "-0.025em", color: "var(--clr-fg)", margin: "20px 0 0", maxWidth: 560 }}>
+                  From contact list to delivered — in four steps.
+                </h2>
               </div>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", borderTop: "1px solid var(--clr-line)" }}>
+                {WORKFLOW.map((s, i) => (
+                  <div key={s.n} style={{
+                    padding: "40px 36px 48px",
+                    borderRight: i < WORKFLOW.length - 1 ? "1px solid var(--clr-line)" : undefined,
+                    background: i % 2 === 0 ? "var(--clr-bg3)" : "var(--clr-bg2)",
+                  }}>
+                    <div style={{ fontFamily: '"Courier New", monospace', fontSize: 28, fontWeight: 300, color: "var(--clr-line3)", letterSpacing: "0.02em", marginBottom: 16 }}>{s.n}</div>
+                    <h3 style={{ fontSize: 17, fontWeight: 500, color: "var(--clr-fg)", margin: "0 0 10px", letterSpacing: "-0.01em" }}>{s.title}</h3>
+                    <p style={{ fontFamily: '"Courier New", monospace', fontSize: 11, letterSpacing: "0.04em", color: "var(--clr-fg4)", lineHeight: 1.85, margin: 0 }}>{s.body}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* ── STATS BAND ── */}
+          <div style={{ borderBottom: "1px solid var(--clr-line)", background: "var(--clr-bg)" }}>
+            <div style={{ margin: "0 40px", borderLeft: "1px solid var(--clr-line)", borderRight: "1px solid var(--clr-line)" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)" }}>
+                {PLATFORM_STATS.map((s, i) => (
+                  <div key={s.l} style={{
+                    padding: "44px 40px",
+                    borderRight: i < PLATFORM_STATS.length - 1 ? "1px solid var(--clr-line)" : undefined,
+                  }}>
+                    <div style={{ fontSize: 34, fontWeight: 600, color: "var(--clr-fg)", letterSpacing: "-0.03em", lineHeight: 1 }}>{s.v}</div>
+                    <div style={{ fontFamily: '"Courier New", monospace', fontSize: 11, letterSpacing: "0.05em", color: "var(--clr-fg4)", marginTop: 12 }}>{s.l}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* ── TRUST / COMPLIANCE STRIP ── */}
+          <div style={{ borderBottom: "1px solid var(--clr-line)" }}>
+            <div style={{ margin: "0 40px", borderLeft: "1px solid var(--clr-line)", borderRight: "1px solid var(--clr-line)", padding: "32px 56px", display: "flex", alignItems: "center", flexWrap: "wrap" as const, gap: 14 }}>
+              <span style={{ fontFamily: '"Courier New", monospace', fontSize: 10, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase" as const, color: "var(--clr-tag)", marginRight: 8 }}>
+                Compliance &amp; infra //
+              </span>
+              {TRUST.map(t => (
+                <span key={t} style={{
+                  fontFamily: '"Courier New", monospace',
+                  fontSize: 11,
+                  letterSpacing: "0.04em",
+                  color: "var(--clr-fg3)",
+                  border: "1px solid var(--clr-line)",
+                  borderRadius: 2,
+                  padding: "7px 12px",
+                  background: "var(--clr-bg2)",
+                }}>
+                  {t}
+                </span>
+              ))}
             </div>
           </div>
 

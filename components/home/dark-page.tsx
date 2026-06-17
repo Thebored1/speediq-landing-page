@@ -3,6 +3,7 @@
 import { type CSSProperties, type ReactNode, useEffect, useRef, useState } from "react"
 import { AsciiNoise } from "@/components/ascii/ascii-noise"
 import { Header } from "@/components/navigation/header"
+import { PricingCalculator } from "@/components/home/pricing-calculator"
 import {
   ArrowIcon,
   Btn,
@@ -176,7 +177,7 @@ const PAIN_LINES = [
 const PLATFORM_COLS = [
   {
     n: "01", title: "Unified Inbox",
-    items: ["Manage conversations across apps", "Assign threads to team members", "Quick replies and templates", "Nothing falls through the cracks"],
+    items: ["WhatsApp, SMS, email, and social — one inbox", "Assign threads to team members", "Quick replies and templates", "Nothing falls through the cracks"],
   },
   {
     n: "02", title: "Broadcasts & Segments",
@@ -307,22 +308,22 @@ function TemplateVisual() {
 const FEATURES: { title: string; body: string; visual: ReactNode }[] = [
   {
     title: "Visual Workflow Builder",
-    body: "Drag-and-drop automations with triggers, branching logic, and webhooks. Automatically respond to email replies or inbound SMS.",
+    body: "Build automated flows with triggers and conditions. Set rules like 'wait 2 days then send a follow-up' — no code needed.",
     visual: <InboxVisual />,
   },
   {
     title: "Advanced Segmentation",
-    body: "Filter your audience using AND/OR logic. See real-time audience size estimations and apply dynamic tagging to contacts.",
+    body: "Filter contacts with AND/OR logic. See live audience size as you build and tag contacts automatically.",
     visual: <BroadcastVisual />,
   },
   {
     title: "Unified Team Inbox",
-    body: "Manage conversations across WhatsApp and SMS in one place. Assign threads, use quick replies, and attach media seamlessly.",
+    body: "All WhatsApp and SMS replies in one shared inbox. Assign threads to team members and use saved replies.",
     visual: <AnalyticsVisual />,
   },
   {
     title: "Cross-Channel Analytics",
-    body: "Track delivery, open, click, and reply rates across WhatsApp, Email, and SMS. Store data up to 1 year on enterprise plans.",
+    body: "Track delivery, opens, clicks, and replies across WhatsApp, Email, and SMS. Keep data for up to one year.",
     visual: <TemplateVisual />,
   },
 ]
@@ -448,7 +449,7 @@ export function DarkPage() {
                     padding: "6px 12px", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.1)"
                   }}>
                     <span style={{ width: 8, height: 8, background: "#fff", borderRadius: "50%" }} />
-                    OMNICHANNEL AUTOMATION
+                    MARKETING CMS & AUTOMATION
                   </div>
 
                   <h1 style={{
@@ -458,8 +459,9 @@ export function DarkPage() {
                     fontWeight: 500, margin: 0, color: "#fff", maxWidth: "800px",
                     textShadow: "0 4px 40px rgba(0,0,0,0.8)",
                   }}>
-                    One inbox for WhatsApp,<br />
-                    <ItalicEmph>Email & SMS.</ItalicEmph>
+                    Campaigns, conversations &<br />
+                    everything between.<br />
+                    <ItalicEmph>One CMS.</ItalicEmph>
                   </h1>
 
                   <p style={{
@@ -467,14 +469,15 @@ export function DarkPage() {
                     color: "rgba(255,255,255,0.52)", maxWidth: 600,
                     textShadow: "0 1px 12px rgba(0,0,0,0.9)",
                   }}>
-                    A SaaS marketing automation platform consolidating broadcasts, templates, segments, and analytics into a unified workspace. Automate, engage, and scale.
+                    Broadcasts, templates, segments, a unified inbox, and analytics across WhatsApp, Email, SMS, and social media — all in one workspace, on one bill.
                   </p>
 
-                  <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 4, color: "rgba(255,255,255,0.7)", fontSize: 14 }}>
-                     <div style={{ display: "flex", gap: 2 }}>
-                        {[1,2,3,4,5].map(i => <span key={i} style={{color: "#fff", fontSize: 16}}>★</span>)}
-                     </div>
-                     <div>4.9 • 5.5k Ratings <span style={{textDecoration: "underline", color: "rgba(255,255,255,0.4)", marginLeft: 4, cursor: "pointer"}}>10K+ Reviews</span></div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 4, color: "rgba(255,255,255,0.45)", fontSize: 12, fontFamily: "var(--font-mono)", letterSpacing: "0.05em" }}>
+                    <span>7-day free trial</span>
+                    <span style={{ color: "rgba(255,255,255,0.2)" }}>·</span>
+                    <span>200 credits included</span>
+                    <span style={{ color: "rgba(255,255,255,0.2)" }}>·</span>
+                    <span>no credit card needed</span>
                   </div>
 
                   <div style={{ display: "flex", gap: 12, flexWrap: "wrap" as const, justifyContent: "flex-start", marginTop: 8 }}>
@@ -482,9 +485,9 @@ export function DarkPage() {
                       style={{ background: "#fff", color: "#000", border: "none", fontFamily: "inherit", fontWeight: 500 }}>
                       START FREE TRIAL
                     </Btn>
-                    <Btn href="/compare" variant="ghost" size="lg"
+                    <Btn href="/pricing" variant="ghost" size="lg"
                       style={{ background: "#111", border: "1px solid rgba(255,255,255,0.2)", color: "#fff", fontFamily: "inherit" }}>
-                      Try CRM for free
+                      See pricing
                     </Btn>
                   </div>
                 </div>
@@ -744,13 +747,13 @@ export function DarkPage() {
                 fontWeight: 500, letterSpacing: "-0.025em", lineHeight: 1.1,
                 color: "#fff", margin: "0 0 16px", maxWidth: 600,
               }}>
-                Unified Workspace for Modern Marketing
+                Everything you need, in one place
               </h2>
               <p style={{
                 fontFamily: "var(--font-sans)", fontSize: 16, lineHeight: 1.6,
                 color: "rgba(255,255,255,0.46)", margin: 0, maxWidth: 540,
               }}>
-                From building visual workflows to running cross-channel broadcasts, SpeedIQ brings your entire marketing stack under one roof—ensuring seamless engagement without compromising speed or scale.
+                Build automations, send broadcasts, and reply to customers — all from one workspace. No switching tools.
               </p>
             </div>
 
@@ -790,8 +793,9 @@ export function DarkPage() {
 
                     <div style={{
                       position: "absolute",
-                      right: -10, bottom: 0,
-                      width: 380, height: 380,
+                      right: 12, bottom: 12,
+                      width: 200, height: 200,
+                      opacity: 0.9,
                       pointerEvents: "none",
                     }}>
                       {f.visual}
@@ -801,7 +805,12 @@ export function DarkPage() {
               ))}
             </div>
           </div>
-        </div>        {/* ── SPACER ──────────────────────────────────────────────────────── */}
+        </div>
+
+        {/* ── PRICING CALCULATOR ──────────────────────────────────────────── */}
+        <PricingCalculator mode="dark" />
+
+        {/* ── SPACER ──────────────────────────────────────────────────────── */}
         <div style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
           <div style={{
             margin: "0 40px",
@@ -817,15 +826,15 @@ export function DarkPage() {
             
             <div style={{ padding: "64px 40px 80px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
               <div style={{ fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.1em", color: "rgba(255,255,255,0.6)", textTransform: "uppercase", marginBottom: 24 }}>
-                Omnichannel marketing designed for scale.
+                Messaging, email, SMS, and social — one platform.
               </div>
-              
+
               <h2 style={{
                 fontFamily: "var(--font-sans)", fontSize: "clamp(28px, 3.5vw, 44px)",
                 fontWeight: 500, letterSpacing: "-0.025em", lineHeight: 1.1,
-                color: "#fff", maxWidth: 800, margin: 0,
+                color: "#fff", maxWidth: 800, margin: "0 0 24px",
               }}>
-                Unified campaigns across WhatsApp, Email, and SMS.
+                Every channel, unified.
               </h2>
             </div>
 
@@ -835,17 +844,17 @@ export function DarkPage() {
                 {
                   icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>,
                   title: "WhatsApp.",
-                  desc: "Engage customers globally with official Meta Business API. Send rich templates, automate replies, and handle live chats seamlessly."
+                  desc: "Uses Meta's official Business API. Send approved templates, run broadcasts, and reply to customers in a live inbox."
                 },
                 {
                   icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>,
                   title: "Email.",
-                  desc: "Build beautiful emails with our drag-and-drop HTML builder. Schedule campaigns, track open rates, and manage subscriptions with ease."
+                  desc: "Drag-and-drop email builder with custom domain sending. Schedule campaigns and track opens, clicks, and unsubscribes."
                 },
                 {
                   icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>,
                   title: "SMS.",
-                  desc: "Deliver critical alerts, OTPs, and promotional texts directly to users' phones with Twilio-powered global SMS and 10DLC support."
+                  desc: "Powered by Twilio with 10DLC compliance for US numbers. Send alerts, promotions, and OTPs globally."
                 }
               ].map((step, i) => (
                 <div key={i} style={{

@@ -43,13 +43,13 @@ function InboxPreview() {
       <div style={{ width: 190, borderRight: `1px solid ${T.line}`, display: "flex", flexDirection: "column", flexShrink: 0 }}>
         <div style={{ padding: "10px 12px", borderBottom: `1px solid ${T.line}`, display: "flex", alignItems: "center", gap: 6 }}>
           <div style={{ flex: 1, background: "var(--clr-bg3)", borderRadius: 6, padding: "5px 8px", fontSize: 10, color: T.mono }}>Search...</div>
-          <div style={{ width: 22, height: 22, borderRadius: 5, background: AMBER, display: "grid", placeItems: "center", fontSize: 11, color: "var(--clr-bg)", fontWeight: 700 }}>+</div>
+          <div style={{ width: 22, height: 22, borderRadius: 5, background: AMBER, display: "grid", placeItems: "center", fontSize: 11, color: "#000000", fontWeight: 700 }}>+</div>
         </div>
         {convos.map((c, i) => (
           <div key={i} style={{ padding: "9px 12px", borderBottom: `1px solid ${T.line}`, display: "flex", gap: 8, alignItems: "center", background: i === 0 ? "var(--clr-line)" : "transparent" }}>
             <div style={{ width: 28, height: 28, borderRadius: "50%", background: "var(--clr-bg3)", display: "grid", placeItems: "center", fontSize: 11, fontWeight: 600, color: T.fg, flexShrink: 0, position: "relative" }}>
               {c.name[0]}
-              <div style={{ position: "absolute", bottom: -1, right: -1, width: 10, height: 10, borderRadius: "50%", background: c.color, border: "1.5px solid var(--clr-bg2)", fontSize: 6, display: "grid", placeItems: "center", color: "var(--clr-fg)", fontWeight: 700 }}>{c.channel[0]}</div>
+              <div style={{ position: "absolute", bottom: -1, right: -1, width: 10, height: 10, borderRadius: "50%", background: c.color, border: "1.5px solid var(--clr-bg2)", fontSize: 6, display: "grid", placeItems: "center", color: "#ffffff", fontWeight: 700 }}>{c.channel[0]}</div>
             </div>
             <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -58,7 +58,7 @@ function InboxPreview() {
               </div>
               <div style={{ fontSize: 10, color: T.mono, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{c.preview}</div>
             </div>
-            {c.badge > 0 && <div style={{ width: 16, height: 16, borderRadius: "50%", background: AMBER, display: "grid", placeItems: "center", fontSize: 9, fontWeight: 700, color: "var(--clr-bg)", flexShrink: 0 }}>{c.badge}</div>}
+            {c.badge > 0 && <div style={{ width: 16, height: 16, borderRadius: "50%", background: AMBER, display: "grid", placeItems: "center", fontSize: 9, fontWeight: 700, color: "#000000", flexShrink: 0 }}>{c.badge}</div>}
           </div>
         ))}
       </div>
@@ -71,7 +71,7 @@ function InboxPreview() {
             <div style={{ fontSize: 12, fontWeight: 600, color: T.fg }}>Maria S.</div>
             <div style={{ fontSize: 9, color: T.mono }}>via Email → WhatsApp</div>
           </div>
-          <div style={{ padding: "4px 8px", background: AMBER, borderRadius: 4, fontSize: 9, fontWeight: 700, color: "var(--clr-bg)", fontFamily: "'Courier New', monospace", letterSpacing: "0.08em" }}>ASSIGN</div>
+          <div style={{ padding: "4px 8px", background: AMBER, borderRadius: 4, fontSize: 9, fontWeight: 700, color: "#000000", fontFamily: "'Courier New', monospace", letterSpacing: "0.08em" }}>ASSIGN</div>
         </div>
         <div style={{ flex: 1, padding: "10px 12px", overflow: "hidden", display: "flex", flexDirection: "column", gap: 7 }}>
           {messages.map((m, i) => (
@@ -96,7 +96,7 @@ function InboxPreview() {
         </div>
         <div style={{ padding: "8px 10px", borderTop: `1px solid ${T.line}`, display: "flex", gap: 6, alignItems: "center" }}>
           <div style={{ flex: 1, background: "var(--clr-bg3)", borderRadius: 6, padding: "6px 10px", fontSize: 10, color: T.mono }}>Reply via WhatsApp...</div>
-          <div style={{ width: 26, height: 26, borderRadius: 6, background: AMBER, display: "grid", placeItems: "center", fontSize: 12, color: "var(--clr-bg)" }}>→</div>
+          <div style={{ width: 26, height: 26, borderRadius: 6, background: AMBER, display: "grid", placeItems: "center", fontSize: 12, color: "#000000" }}>→</div>
         </div>
       </div>
     </div>
@@ -141,7 +141,7 @@ export default function InboxFeaturePage() {
                     WhatsApp, Email, and SMS threads — unified. No tab switching, no lost context.
                   </p>
                   <div style={{ display: "flex", gap: 12 }}>
-                    <Link href="/auth/sign-up" style={{ display: "inline-flex", alignItems: "center", padding: "11px 24px", background: AMBER, color: "var(--clr-bg)", fontFamily: "'Courier New', monospace", fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const, textDecoration: "none" }}>Start Free</Link>
+                    <Link href="/auth/sign-up" style={{ display: "inline-flex", alignItems: "center", padding: "11px 24px", background: AMBER, color: "#000000", fontFamily: "'Courier New', monospace", fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const, textDecoration: "none" }}>Start Free</Link>
                     <Link href="/features" style={{ display: "inline-flex", alignItems: "center", padding: "11px 24px", background: "transparent", color: T.fg3, fontFamily: "'Courier New', monospace", fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const, textDecoration: "none", border: `1px solid ${T.line3}` }}>All Features</Link>
                   </div>
                 </div>
@@ -192,7 +192,7 @@ export default function InboxFeaturePage() {
                 <h2 style={{ fontSize: "clamp(20px, 3vw, 36px)", fontWeight: 500, letterSpacing: "-0.025em", color: T.fg, margin: "0 0 10px" }}>Unify your customer conversations today.</h2>
                 <p style={{ fontSize: 15, color: T.fg4, margin: 0 }}>200 free credits included. All 3 channels from day one.</p>
               </div>
-              <Link href="/auth/sign-up" style={{ flexShrink: 0, display: "inline-flex", alignItems: "center", padding: "14px 32px", background: AMBER, color: "var(--clr-bg)", fontFamily: "'Courier New', monospace", fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const, textDecoration: "none", whiteSpace: "nowrap" as const }}>
+              <Link href="/auth/sign-up" style={{ flexShrink: 0, display: "inline-flex", alignItems: "center", padding: "14px 32px", background: AMBER, color: "#000000", fontFamily: "'Courier New', monospace", fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const, textDecoration: "none", whiteSpace: "nowrap" as const }}>
                 Start Free Trial →
               </Link>
             </div>

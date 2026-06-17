@@ -36,9 +36,9 @@ function WaChatPreview() {
     <div style={{ background: "#0d1117", border: `1px solid ${T.line2}`, borderRadius: 12, overflow: "hidden", width: "100%", maxWidth: 340, fontFamily: "-apple-system, sans-serif" }}>
       {/* WA header */}
       <div style={{ background: "#1a2332", padding: "12px 16px", display: "flex", alignItems: "center", gap: 10 }}>
-        <div style={{ width: 36, height: 36, borderRadius: "50%", background: GREEN, display: "grid", placeItems: "center", fontSize: 15, color: "var(--clr-fg)", fontWeight: 700 }}>A</div>
+        <div style={{ width: 36, height: 36, borderRadius: "50%", background: GREEN, display: "grid", placeItems: "center", fontSize: 15, color: "#ffffff", fontWeight: 700 }}>A</div>
         <div>
-          <div style={{ fontSize: 13, fontWeight: 600, color: "var(--clr-fg)" }}>Acme Support</div>
+          <div style={{ fontSize: 13, fontWeight: 600, color: "#ffffff" }}>Acme Support</div>
           <div style={{ fontSize: 11, color: GREEN }}>online</div>
         </div>
       </div>
@@ -48,7 +48,7 @@ function WaChatPreview() {
           <div key={i} style={{ display: "flex", justifyContent: b.side === "right" ? "flex-end" : "flex-start" }}>
             <div style={{ maxWidth: "78%", background: b.side === "right" ? "#1a5c38" : "#1f2937", borderRadius: b.side === "right" ? "12px 12px 3px 12px" : "12px 12px 12px 3px", padding: "7px 10px" }}>
               <div style={{ fontSize: 12, color: "#e5e7eb", lineHeight: 1.5, whiteSpace: "pre-line" }}>{b.text}</div>
-              <div style={{ fontSize: 9.5, color: "var(--clr-fg4)", textAlign: "right", marginTop: 3, display: "flex", alignItems: "center", justifyContent: "flex-end", gap: 3 }}>
+              <div style={{ fontSize: 9.5, color: "rgba(255,255,255,0.44)", textAlign: "right", marginTop: 3, display: "flex", alignItems: "center", justifyContent: "flex-end", gap: 3 }}>
                 {b.time}
                 {b.side === "right" && <span style={{ color: GREEN }}>✓✓</span>}
               </div>
@@ -58,7 +58,7 @@ function WaChatPreview() {
       </div>
       {/* Input bar */}
       <div style={{ background: "#1a2332", padding: "8px 12px", display: "flex", alignItems: "center", gap: 8 }}>
-        <div style={{ flex: 1, background: "#0d1117", borderRadius: 20, padding: "8px 14px", fontSize: 12, color: "var(--clr-fg4)" }}>Message...</div>
+        <div style={{ flex: 1, background: "#0d1117", borderRadius: 20, padding: "8px 14px", fontSize: 12, color: "rgba(255,255,255,0.44)" }}>Message...</div>
         <div style={{ width: 34, height: 34, borderRadius: "50%", background: GREEN, display: "grid", placeItems: "center", fontSize: 14 }}>🎙</div>
       </div>
     </div>
@@ -126,7 +126,7 @@ export default function WhatsAppFeaturePage() {
                     Official Meta Business API. Template submissions. Live chat inbox. All from a single workspace — no separate BSP needed.
                   </p>
                   <div style={{ display: "flex", gap: 12, flexWrap: "wrap" as const }}>
-                    <Link href="/auth/sign-up" style={{ display: "inline-flex", alignItems: "center", padding: "11px 24px", background: GREEN, color: "var(--clr-fg)", fontFamily: "'Courier New', monospace", fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const, textDecoration: "none" }}>
+                    <Link href="/auth/sign-up" style={{ display: "inline-flex", alignItems: "center", padding: "11px 24px", background: GREEN, color: "#ffffff", fontFamily: "'Courier New', monospace", fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const, textDecoration: "none" }}>
                       Start Free Trial
                     </Link>
                     <Link href="/features" style={{ display: "inline-flex", alignItems: "center", padding: "11px 24px", background: "transparent", color: T.fg3, fontFamily: "'Courier New', monospace", fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const, textDecoration: "none", border: `1px solid ${T.line3}` }}>
@@ -213,7 +213,7 @@ export default function WhatsAppFeaturePage() {
                 <h2 style={{ fontSize: "clamp(20px, 3vw, 36px)", fontWeight: 500, letterSpacing: "-0.025em", color: T.fg, margin: "0 0 10px" }}>Ready to launch your first WhatsApp campaign?</h2>
                 <p style={{ fontSize: 15, color: T.fg4, margin: 0 }}>200 free credits on sign-up. No credit card required.</p>
               </div>
-              <Link href="/auth/sign-up" style={{ flexShrink: 0, display: "inline-flex", alignItems: "center", padding: "14px 32px", background: GREEN, color: "var(--clr-fg)", fontFamily: "'Courier New', monospace", fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const, textDecoration: "none", whiteSpace: "nowrap" as const }}>
+              <Link href="/auth/sign-up" style={{ flexShrink: 0, display: "inline-flex", alignItems: "center", padding: "14px 32px", background: GREEN, color: "#ffffff", fontFamily: "'Courier New', monospace", fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const, textDecoration: "none", whiteSpace: "nowrap" as const }}>
                 Start Free Trial →
               </Link>
             </div>

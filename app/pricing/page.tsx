@@ -142,7 +142,7 @@ export default function PricingPage() {
             <div style={{ margin: "0 40px", borderLeft: "1px solid var(--clr-line)", borderRight: "1px solid var(--clr-line)", padding: "56px" }}>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24, maxWidth: 1100, margin: "0 auto" }}>
                 {PLANS.map((plan) => (
-                  <div key={plan.name} style={{ border: plan.highlight ? "1px solid var(--clr-fg4)" : "1px solid var(--clr-line2)", background: plan.highlight ? "#111" : "var(--clr-bg3)", padding: "40px", position: "relative" }}>
+                  <div key={plan.name} className={plan.highlight ? "pricing-highlight" : undefined} style={{ border: plan.highlight ? "1px solid var(--clr-fg4)" : "1px solid var(--clr-line2)", background: plan.highlight ? "#111" : "var(--clr-bg3)", padding: "40px", position: "relative" }}>
                     {plan.highlight && (
                       <div style={{ position: "absolute", top: -1, left: "50%", transform: "translateX(-50%)", background: "var(--clr-cta)", color: "var(--clr-cta-fg)", fontFamily: '"Courier New", monospace', fontSize: 9, fontWeight: 700, letterSpacing: "0.12em", padding: "4px 14px", whiteSpace: "nowrap" }}>
                         MOST POPULAR

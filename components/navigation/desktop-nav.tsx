@@ -83,7 +83,10 @@ export function DesktopNav() {
           className="relative h-full flex items-center"
           onMouseEnter={() => handleMouseEnter(idx)}
         >
-          <button className={`flex h-full items-center px-6 gap-2 bg-transparent text-sm font-medium transition-colors ${activeIdx === idx ? 'text-white bg-neutral-900' : 'text-neutral-300 hover:text-white hover:bg-neutral-900/50'}`}>
+          <button
+            className={`flex h-full items-center px-6 gap-2 bg-transparent text-sm font-medium transition-colors ${activeIdx === idx ? 'text-[var(--header-text-hover)]' : 'text-[var(--header-text)] hover:text-[var(--header-text-hover)]'}`}
+            style={{ backgroundColor: activeIdx === idx ? 'var(--header-hover-bg)' : undefined }}
+          >
             {menu.label}
             <ChevronDown size={14} className={`transition-transform duration-150 ease-out opacity-50 ${activeIdx === idx ? 'rotate-180' : ''}`} />
           </button>
@@ -92,7 +95,7 @@ export function DesktopNav() {
       
       <Link 
         href="/pricing"
-        className="flex h-full items-center px-6 text-sm font-medium text-neutral-300 hover:text-white hover:bg-neutral-900/50 transition-colors"
+        className="flex h-full items-center px-6 text-sm font-medium text-[var(--header-text)] hover:text-[var(--header-text-hover)] hover:bg-neutral-900/50 transition-colors"
         onMouseEnter={() => handleMouseEnter(-1)}
       >
         Pricing
@@ -137,11 +140,11 @@ export function DesktopNav() {
                     href={item.href} 
                     className="p-3 text-sm flex flex-col gap-1 hover:bg-neutral-900 rounded-sm transition-all duration-200 group/item"
                   >
-                    <span className="font-medium text-neutral-200 transition-all duration-200">
+                    <span className="font-medium text-[var(--header-text)] transition-all duration-200">
                       {item.name}
                     </span>
                     {item.description && (
-                      <span className="text-xs text-neutral-500 transition-all duration-200 line-clamp-2">
+                      <span className="text-xs text-[var(--clr-fg3)] transition-all duration-200 line-clamp-2">
                         {item.description}
                       </span>
                     )}

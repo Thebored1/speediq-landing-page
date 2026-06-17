@@ -12,10 +12,7 @@ export function Header() {
       {/* Left: Logo and Desktop Navigation */}
       <div className="flex h-full items-center divide-x divide-neutral-800">
         <Link href="/" className="flex h-full items-center gap-2 group px-6 hover:bg-neutral-900 transition-colors">
-          <div className="size-6 grid place-content-center bg-[#FF4F00] text-white font-bold text-sm">
-            S
-          </div>
-          <span className="text-white font-semibold tracking-tight hidden sm:block">SpeedIQ</span>
+          <span className="font-semibold tracking-tight text-lg" style={{ color: "var(--header-text-hover)" }}>SpeedIQ</span>
         </Link>
 
         <div className="hidden lg:block h-full">
