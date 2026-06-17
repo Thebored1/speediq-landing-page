@@ -3,7 +3,6 @@
 import { type CSSProperties, type ReactNode, useEffect, useRef, useState } from "react"
 import { AsciiNoise } from "@/components/ascii/ascii-noise"
 import { Header } from "@/components/navigation/header"
-import { PricingCalculator } from "@/components/home/pricing-calculator"
 import {
   ArrowIcon,
   Btn,
@@ -806,9 +805,6 @@ export function DarkPage() {
             </div>
           </div>
         </div>
-
-        {/* ── PRICING CALCULATOR ──────────────────────────────────────────── */}
-        <PricingCalculator mode="dark" />
 
         {/* ── SPACER ──────────────────────────────────────────────────────── */}
         <div style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>

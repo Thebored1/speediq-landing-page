@@ -3,7 +3,6 @@
 import { type CSSProperties, type ReactNode, useEffect, useRef, useState } from "react"
 import { AsciiNoise } from "@/components/ascii/ascii-noise"
 import { Header } from "@/components/navigation/header"
-import { PricingCalculator } from "@/components/home/pricing-calculator"
 import {
   ArrowIcon,
   Btn,
